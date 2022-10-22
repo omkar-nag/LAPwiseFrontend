@@ -1,0 +1,13 @@
+<form #loginform="ngForm" (ngSubmit)="login(loginform)">
+    <div class="container-fluid">
+        <h2>Login</h2>
+        <div *ngIf="invalidLogin" style="color: red;" class="alert alert-danger">Invalid Username or Password</div>
+        <br>
+        <label for="username" >UserName</label>
+        <input id="username" name="username" ngModel placeholder="User Name" required autofocus>
+        <br>
+        <label for="password" >Password</label>
+        <input id="password" name="password" ngModel placeholder="Password" required>
+        <button type="submit">Submit</button>
+    </div>
+</form>
