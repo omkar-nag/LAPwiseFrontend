@@ -9,26 +9,16 @@ import { HomeComponent } from './home/home.component';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
-import { AuthGuard } from './auth-guard.guard';
-import { Routes } from '@angular/router';
-import { TestComponent } from './test/test.component';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
 }
 
-const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'customers', component: HomeComponent, canActivate: [AuthGuard] }
-];
-
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
-    TestComponent
+    HomeComponent
   ],
   imports: [
     HttpClientModule,
@@ -43,7 +33,7 @@ const routes: Routes = [
       }
     })
   ],
-  providers: [AuthGuard, HttpClientModule],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
