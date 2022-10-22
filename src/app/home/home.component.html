@@ -1,0 +1,12 @@
+<p>home works!</p>
+
+
+<div *ngIf="isUserAuthenticated(); else unauthenticated">
+    <h3 style="color: green;">Logged In</h3>
+</div>
+
+<ng-template #unauthenticated>
+    <h3 style="color: red;">Logged Out</h3>
+</ng-template>
+
+<button (click)="logOut()">Logout</button>
