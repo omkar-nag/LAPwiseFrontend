@@ -1,0 +1,17 @@
+
+
+<mat-toolbar style="justify-content: space-between;">
+    <div>
+        <a routerLink="/"><img src="../../assets/logo-light.svg" alt="LAPwise"></a>
+    </div>
+    <div>
+        <div *ngIf="isUserAuthenticated()" else unauthenticated>
+            <a routerLink="/departments"
+                routerLinkActive="active">Departments</a>
+            <a routerLink="/employees" routerLinkActive="active">employees</a>
+            <a routerLink="/login" (click)="logOut()" routerLinkActive="active">Logout</a>
+        </div>
+        <a *ngIf="!isUserAuthenticated()" routerLink="/login"
+            routerLinkActive="active">Login</a>
+    </div>
+</mat-toolbar>

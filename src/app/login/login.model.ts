@@ -1,6 +1,6 @@
 export interface LoginModel {
-  username: string;
-  password: string;
+  UserName: string;
+  Password: string;
 }
 
 export interface AuthenticatedResponse {

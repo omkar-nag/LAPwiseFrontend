@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  userName: string = 'Guest User';
   constructor(private jwtHelper: JwtHelperService, private router: Router) { }
 
   isUserAuthenticated = (): boolean => {
@@ -19,6 +20,7 @@ export class HomeComponent implements OnInit {
     return false;
   }
 
+
   logOut() {
     localStorage.removeItem("jwt");
   }
@@ -28,6 +30,11 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    const tokenData = this.jwtHelper.decodeToken(localStorage.getItem("jwt") || '');
+    console.log(tokenData);
+    this.userName = tokenData ? tokenData["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"] : 'Guest User';
+
   }
 
 }

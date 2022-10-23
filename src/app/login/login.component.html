@@ -1,13 +1,33 @@
-<form #loginform="ngForm" (ngSubmit)="login(loginform)">
-    <div class="container-fluid">
-        <h2>Login</h2>
-        <div *ngIf="invalidLogin" style="color: red;" class="alert alert-danger">Invalid Username or Password</div>
-        <br>
-        <label for="username" >UserName</label>
-        <input id="username" name="username" ngModel placeholder="User Name" required autofocus>
-        <br>
-        <label for="password" >Password</label>
-        <input id="password" name="password" ngModel placeholder="Password" required>
-        <button type="submit">Submit</button>
+<form #form="ngForm" (ngSubmit)="login(form)">
+    <div>
+        <mat-card class="login-card">
+            <h1>Log In</h1>
+
+            <p *ngIf="invalidLogin" class="invalid-login">Invalid Username or
+                Password. Please try again!</p>
+
+            <mat-form-field appearance="outline">
+                <mat-label>User Name</mat-label>
+                <input id="username" name="username" ngModel matInput
+                    placeholder="User Name" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input id="password" name="password" ngModel matInput
+                    placeholder="Password" required
+                    matInput [type]="hidePassword ? 'password' : 'text'">
+                <button
+                    mat-icon-button matSuffix (click)="hidePassword=
+                    !hidePassword"
+                    [attr.aria-label]="'hidePassword password'"
+                    [attr.aria-pressed]="hidePassword">
+                    <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="submit">Submit</button>
+        </mat-card>
+
     </div>
 </form>

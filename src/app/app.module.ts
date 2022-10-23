@@ -5,30 +5,56 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { NavbarComponent } from './navbar/navbar.component'
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
 }
 
+const materialComponents = [
+  BrowserAnimationsModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatIconModule,
+  MatSnackBarModule,
+  MatButtonModule,
+  MatCardModule,
+  MatToolbarModule
+]
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents
+    routingComponents,
+    NavbarComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+
+    materialComponents,
+
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
         allowedDomains: ["localhost:5152"],
         disallowedRoutes: []
       }
-    })
+    }),
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
