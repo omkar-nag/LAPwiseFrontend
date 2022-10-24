@@ -2,16 +2,31 @@
 
 <mat-toolbar style="justify-content: space-between;">
     <div>
-        <a routerLink="/"><img src="../../assets/logo-light.svg" alt="LAPwise"></a>
+        <a routerLink="/"><img src="../../assets/logo-dark.svg" alt="LAPwise"></a>
     </div>
     <div>
         <div *ngIf="isUserAuthenticated()" else unauthenticated>
-            <a routerLink="/departments"
+            <a class="routeBtn" routerLink="/departments"
                 routerLinkActive="active">Departments</a>
-            <a routerLink="/employees" routerLinkActive="active">employees</a>
-            <a routerLink="/login" (click)="logOut()" routerLinkActive="active">Logout</a>
+            <a class="routeBtn" routerLink="/employees"
+                routerLinkActive="active">Employees</a>
+            <a class="routeBtn" routerLink="/login" (click)="logOut()"
+                routerLinkActive="active">
+                Logout
+                <mat-icon aria-hidden="false">logout</mat-icon>
+            </a>
         </div>
-        <a *ngIf="!isUserAuthenticated()" routerLink="/login"
-            routerLinkActive="active">Login</a>
+        <div>
+            <a class="routeBtn" *ngIf="!isUserAuthenticated()"
+                routerLink="/login"
+                routerLinkActive="active">
+                LogIn
+            </a>
+            <a class="routeBtn" *ngIf="!isUserAuthenticated()"
+                routerLink="/signup"
+                routerLinkActive="active">
+                SignUp
+            </a>
+        </div>
     </div>
 </mat-toolbar>

@@ -14,31 +14,29 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./login.component.css']
 })
 
-
 export class LoginComponent implements OnInit {
 
   invalidLogin: boolean = false;
 
   hidePassword = true;
 
-  credentials: LoginModel = { UserName: '', Password: '' };
+  userName = '';
 
-  constructor(private router: Router, private http: HttpClient, private _snackBar: MatSnackBar) { }
+  credentials: LoginModel = { UserName: this.userName, Password: '' };
+
+  constructor(private router: Router, private httpClient: HttpClient, private _snackBar: MatSnackBar) {
+    var state = this.router.getCurrentNavigation()?.extras?.state;
+    this.userName = state == undefined ? '' : state['username'];
+  }
 
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action);
   }
 
   login = (form: NgForm) => {
-    console.log(form);
     if (form.valid) {
-
-      this.credentials.UserName = form.value.username;
-      this.credentials.Password = form.value.password;
-
-      this.http.post<AuthenticatedResponse>(environment.baseUrl + "/auth/login", this.credentials, {
-        headers: new HttpHeaders({ "Content-Type": "application/json" })
-      })
+      this.credentials.UserName = this.userName;
+      this.httpClient.post<AuthenticatedResponse>(environment.baseUrl + "/auth/login", this.credentials)
         .subscribe({
           next: (response: AuthenticatedResponse) => {
             const token = response.token;

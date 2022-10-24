@@ -9,7 +9,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  userName: string = 'Guest User';
+  userName: string = 'Guest';
   constructor(private jwtHelper: JwtHelperService, private router: Router) { }
 
   isUserAuthenticated = (): boolean => {

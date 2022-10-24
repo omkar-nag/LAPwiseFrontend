@@ -1,12 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 
-html,
-body {
-    height: 100%;
-}
 
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    /* background-color: #e8e0cd; */
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.redirect-text {
+    color: #bebebe;
+    margin-top: 20px !important;
+}
+
+img {
+    vertical-align: middle;
+    max-width: 150px;
 }
