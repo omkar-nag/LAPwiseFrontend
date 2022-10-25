@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthService } from './auth/auth.service';
-import { DepartmentListComponent } from './department-list/department-list.component';
-import { EmployeeListComponent } from './employee-list/employee-list.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
+import { AuthService } from './services/auth.service';
+import { DepartmentListComponent } from './components/department-list/department-list.component';
+import { EmployeeListComponent } from './components/employee-list/employee-list.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 // All the exposed routes
 const routes: Routes = [

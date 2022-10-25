@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
-import { environment } from '../../environments/environment'
+import { environment } from '../../../environments/environment'
 import { AuthenticatedResponse, LoginModel } from './login.model';
 
 import { MatSnackBar } from '@angular/material/snack-bar';

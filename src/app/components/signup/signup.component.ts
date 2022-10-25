@@ -3,7 +3,7 @@ import { SignupModel, AuthenticatedResponse } from './signup.model';
 
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { environment } from '../../environments/environment'
+import { environment } from '../../../environments/environment'
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
