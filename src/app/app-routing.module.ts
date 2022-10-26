@@ -5,6 +5,8 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { AssessmentsComponent } from './components/assessments/assessments.component';
+import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
+
 
 // All the exposed routes
 const routes: Routes = [
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
 
   { path: 'assessments', component: AssessmentsComponent, canActivate: [AuthService] },
+  {path : 'update-profile',component: UpdateProfileComponent},
+
 
 ];
 
