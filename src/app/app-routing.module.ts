@@ -6,6 +6,8 @@ import { EmployeeListComponent } from './components/employee-list/employee-list.
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
+import { UserServiceService } from './services/user-service.service';
 
 // All the exposed routes
 const routes: Routes = [
@@ -13,7 +15,7 @@ const routes: Routes = [
 
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-
+  {path : 'update-profile',component: UpdateProfileComponent},
   { path: 'departments', component: DepartmentListComponent, canActivate: [AuthService] },
   { path: 'employees', component: EmployeeListComponent, canActivate: [AuthService] },
 
