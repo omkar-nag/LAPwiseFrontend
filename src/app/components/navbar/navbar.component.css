@@ -2,6 +2,7 @@
     background-color: #ffffff;
     height: 80px;
     box-shadow: 0px 1px 10px #e9e9e9;
+    margin-bottom: 50px;
 }
 
 .mat-toolbar>div,
@@ -23,15 +24,15 @@ div>div {
 .routeBtn {
     color: #000000 !important;
     text-decoration: none;
-    /* margin: 0 10px 0; */
     display: flex;
     align-items: center;
     height: 100%;
     padding: 0 20px;
+    font-size: 15px;
 }
 
 .active {
-    background-color: black !important;
+    background-image: linear-gradient(to top right, #494949, #000000);
     transition: background-color 0.2s ease-in;
     color: #ff9800 !important;
 }

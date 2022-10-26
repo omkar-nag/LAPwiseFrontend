@@ -7,8 +7,6 @@ import { environment } from '../../../environments/environment'
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-
-
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -18,6 +16,8 @@ export class SignupComponent implements OnInit {
 
   invalidSignUp: boolean = false;
   hidePassword = true;
+
+  toolTip: string = "The password must be of a minimum 8 characters. The password must contain atleast 1 upper case character, 1 lower case character, 1 special character and 1 numeric value";
 
   credentials: SignupModel = {
     FirstName: '',
@@ -56,7 +56,6 @@ export class SignupComponent implements OnInit {
     }
     else {
       this.invalidSignUp = true;
-      alert("invalid");
     }
   }
   ngOnInit(): void {

@@ -1,0 +1,62 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <div *ngIf="contentFetched">
+
+        <div *ngIf="assessmentCardsUnattempted.length != 0" class="section">
+            <p class="heading">Unattempted Tracks 🏎️</p>
+            <div class="grid-container">
+                <div *ngFor='let item of assessmentCardsUnattempted;'>
+                    <app-assessment-card
+                        [title]="item['Title']"
+                        [questionCount]="item['Quiz']['QuestionCount']"
+                        [quizID]="item['Quiz']['Id']"
+                        [topicID]="item['Topic']['Id']"
+                        [topicTitle]="item['Topic']['Name']"
+                        [bestScore]="item['Score']"></app-assessment-card>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="assessmentCardsAttempted.length != 0" class="section">
+            <p class="heading">One-up your previous lap 🏁</p>
+            <div class="grid-container">
+                <div *ngFor='let item of assessmentCardsAttempted;'>
+                    <app-assessment-card
+                        [title]="item['Title']"
+                        [questionCount]="item['Quiz']['QuestionCount']"
+                        [quizID]="item['Quiz']['Id']"
+                        [topicID]="item['Topic']['Id']"
+                        [topicTitle]="item['Topic']['Name']"
+                        [bestScore]="item['Score']"></app-assessment-card>
+                </div>
+            </div>
+
+        </div>
+        <div *ngIf="assessmentCardsCompleted.length != 0" class="section">
+            <p class="heading">Completed 🥇</p>
+            <div class="grid-container">
+                <div *ngFor='let item of assessmentCardsCompleted;'>
+                    <app-assessment-card
+                        [title]="item['Title']"
+                        [questionCount]="item['Quiz']['QuestionCount']"
+                        [quizID]="item['Quiz']['Id']"
+                        [topicID]="item['Topic']['Id']"
+                        [topicTitle]="item['Topic']['Name']"
+                        [bestScore]="item['Score']"></app-assessment-card>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="grid-container" *ngIf="!contentFetched">
+        <div *ngFor='let item of [1,2,3,4,5,6]; let i= index'>
+            <app-skeleton-loader></app-skeleton-loader>
+        </div>
+    </div>
+</div>

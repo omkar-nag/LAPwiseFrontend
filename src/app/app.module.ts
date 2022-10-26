@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
@@ -15,7 +15,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { SignupComponent } from './components/signup/signup.component'
+import { SignupComponent } from './components/signup/signup.component';
+import { AssessmentsComponent } from './components/assessments/assessments.component';
+import { AssessmentCardComponent } from './components/assessments/assessment-card/assessment-card.component'
+import { SkeletonLoaderModule } from './components/assessments/skeleton-loader/skeleton-loader.module';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -29,7 +32,8 @@ const materialComponents = [
   MatSnackBarModule,
   MatButtonModule,
   MatCardModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatTooltipModule
 ]
 
 @NgModule({
@@ -37,15 +41,17 @@ const materialComponents = [
     AppComponent,
     routingComponents,
     NavbarComponent,
-    SignupComponent
+    SignupComponent,
+    AssessmentsComponent,
+    AssessmentCardComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-
     materialComponents,
+    SkeletonLoaderModule,
 
     JwtModule.forRoot({
       config: {

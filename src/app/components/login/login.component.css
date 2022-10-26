@@ -1,8 +1,4 @@
 .login-card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
     width: 500px;
     margin: auto;
     margin-top: 200px;
