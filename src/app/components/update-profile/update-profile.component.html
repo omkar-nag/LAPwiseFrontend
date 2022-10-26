@@ -8,7 +8,8 @@
                 <mat-label>First Name</mat-label>
                 <input
                     id="firstname"
-                    name="firstname"
+                    name="Firstname"
+                    #FirstName="ngModel"
                     [(ngModel)]="service.formData.FirstName"
                     matInput
                     placeholder="First Name" required>
@@ -18,7 +19,8 @@
                 <mat-label>Last Name</mat-label>
                 <input
                     id="lastname"
-                    name="lastname"
+                    name="LastName"
+                    #LastName="ngModel"
                     [(ngModel)]="service.formData.LastName"
                     matInput
                     placeholder="Last Name" required>
@@ -28,7 +30,8 @@
                 <mat-label>Email</mat-label>
                 <input
                     id="email"
-                    name="email"
+                    name="Email"
+                    #Email="ngModel"
                     type="email"
                     [email]="true"
                     [(ngModel)]="service.formData.Email"
@@ -40,7 +43,8 @@
                 <mat-label>Username</mat-label>
                 <input
                     id="username"
-                    name="username"
+                    name="UserName"
+                    #UserName="ngModel"
                     [(ngModel)]="service.formData.UserName"
                     matInput
                     placeholder="Username" required>
@@ -50,7 +54,8 @@
                 <mat-label>Password</mat-label>
                 <input
                     id="password"
-                    name="password"
+                    name="Password"
+                    #Password="ngModel"
                     [type]="hidePassword ? 'password' : 'text'"
                     [(ngModel)]="service.formData.Password"
                     matInput

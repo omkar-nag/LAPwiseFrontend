@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import {UserUpdate}from './components/update-profile/user-update.model';
+import {UserUpdate}from '../components/update-profile/update-profile.model';
 import { HttpClient } from '@angular/common/http';
 import { UserDataService } from './user-data.service';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,6 +14,6 @@ export class UserServiceService {
 
 
   putUser(){
-    return(this.http.put(`${this.baseURL}/${this.userservice.getUserID}`,this.formData));
+    return(this.http.put(`${this.baseURL}/${this.userservice.getUserID()}`,this.formData));
   }
 }

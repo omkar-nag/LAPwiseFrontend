@@ -7,7 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
-import { UserServiceService } from './services/user-service.service';
+
 
 // All the exposed routes
 const routes: Routes = [

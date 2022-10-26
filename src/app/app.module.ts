@@ -17,7 +17,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
-import { UserUpdate } from './components/update-profile/user-update.model';
+
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -42,13 +42,14 @@ const materialComponents = [
     NavbarComponent,
     SignupComponent,
     UpdateProfileComponent,
+   
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    UserUpdate,
+
 
     materialComponents,
 
