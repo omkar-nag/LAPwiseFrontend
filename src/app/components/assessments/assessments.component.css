@@ -1,0 +1,17 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 10px;
+    gap: 50px;
+}
+
+.section {
+    margin-bottom: 50px;
+}
+
+.heading {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 120%;
+    margin-bottom: 30px;
+}

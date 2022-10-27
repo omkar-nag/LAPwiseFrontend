@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthService } from './services/auth.service';
-import { DepartmentListComponent } from './components/department-list/department-list.component';
-import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { NotesComponent } from './components/notes/notes.component';
+import { AssessmentsComponent } from './components/assessments/assessments.component';
+import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
+
 
 // All the exposed routes
 const routes: Routes = [
@@ -14,11 +15,11 @@ const routes: Routes = [
 
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-
-  { path: 'departments', component: DepartmentListComponent, canActivate: [AuthService] },
-  { path: 'employees', component: EmployeeListComponent, canActivate: [AuthService] },
-  { path: 'notes', component: NotesComponent, canActivate: [AuthService] },
   
+  { path: 'notes', component: NotesComponent, canActivate: [AuthService] },
+  { path: 'assessments', component: AssessmentsComponent, canActivate: [AuthService] },
+  {path : 'update-profile',component: UpdateProfileComponent},
+
 
 ];
 
@@ -30,4 +31,4 @@ const routes: Routes = [
 export class AppRoutingModule { }
 
 // Corresponding components for the routes
-export const routingComponents = [HomeComponent, LoginComponent, DepartmentListComponent, EmployeeListComponent, NotesComponent]
+export const routingComponents = [HomeComponent, LoginComponent, AssessmentsComponent, NotesComponent]

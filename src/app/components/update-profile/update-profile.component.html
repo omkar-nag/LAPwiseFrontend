@@ -1,18 +1,16 @@
-<form #form="ngForm" (ngSubmit)="signUp(form)">
+<form #form="ngForm" (ngSubmit)="Update(form)">
     <div>
-        <mat-card class="login-card flex-center">
-            <h1>Sign Up</h1>
+        <mat-card class="login-card">
+            <h1>Update Profile</h1>
 
-            <p *ngIf="invalidSignUp" class="invalid-login">Invalid credentials.
-                <mat-icon class='colorInfo' [matTooltip]="toolTip">info_outline</mat-icon>
-            </p>
-
+        
             <mat-form-field appearance="outline">
                 <mat-label>First Name</mat-label>
                 <input
                     id="firstname"
-                    name="firstname"
-                    [(ngModel)]="credentials.FirstName"
+                    name="Firstname"
+                    #FirstName="ngModel"
+                    [(ngModel)]="service.formData.FirstName"
                     matInput
                     placeholder="First Name" required>
             </mat-form-field>
@@ -21,8 +19,9 @@
                 <mat-label>Last Name</mat-label>
                 <input
                     id="lastname"
-                    name="lastname"
-                    [(ngModel)]="credentials.LastName"
+                    name="LastName"
+                    #LastName="ngModel"
+                    [(ngModel)]="service.formData.LastName"
                     matInput
                     placeholder="Last Name" required>
             </mat-form-field>
@@ -31,19 +30,22 @@
                 <mat-label>Email</mat-label>
                 <input
                     id="email"
-                    name="email"
+                    name="Email"
+                    #Email="ngModel"
                     type="email"
                     [email]="true"
-                    [(ngModel)]="credentials.Email"
+                    [(ngModel)]="service.formData.Email"
                     matInput
                     placeholder="email" required>
             </mat-form-field>
+
             <mat-form-field appearance="outline">
                 <mat-label>Username</mat-label>
                 <input
                     id="username"
-                    name="username"
-                    [(ngModel)]="credentials.UserName"
+                    name="UserName"
+                    #UserName="ngModel"
+                    [(ngModel)]="service.formData.UserName"
                     matInput
                     placeholder="Username" required>
             </mat-form-field>
@@ -52,13 +54,12 @@
                 <mat-label>Password</mat-label>
                 <input
                     id="password"
-                    name="password"
+                    name="Password"
+                    #Password="ngModel"
                     [type]="hidePassword ? 'password' : 'text'"
-                    [(ngModel)]="credentials.Password"
+                    [(ngModel)]="service.formData.Password"
                     matInput
-                    placeholder="Password"
-                    required
-                    pattern="(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+                    placeholder="Password" required>
                 <button type=button
                     mat-icon-button matSuffix
                     (click)="hidePassword=!hidePassword"
@@ -68,8 +69,8 @@
                 </button>
             </mat-form-field>
 
-            <button mat-raised-button color="primary" type="submit">Submit</button>
-            <p class="redirect-text">Already have an account? <a href="/login">LogIn</a></p>
+            <button mat-raised-button color="primary" type="submit">Update</button>
+      
         </mat-card>
     </div>
 </form>

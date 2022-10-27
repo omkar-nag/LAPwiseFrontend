@@ -1,0 +1,40 @@
+.mat-card {
+    background-image: url("../../../../assets/assessment-card.png");
+    background-size: cover;
+}
+
+
+.card-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    color: white;
+    text-shadow: 0 0 20px black;
+    margin-top: 30px;
+}
+
+.mat-fab {
+    background-image: linear-gradient(to top right, #ffd390, #ff9800, #ff9800);
+    height: 80px;
+    width: 80px;
+}
+
+.mat-fab:hover {
+    box-shadow: 0px 3px 5px -1px rgb(0 0 0)
+}
+
+.mat-icon {
+    font-size: 40px;
+    height: auto;
+    width: auto;
+}
+
+
+.title {
+    font-size: 30px;
+    line-height: normal;
+}
+
+.rel-topic {
+    color: #ffffff;
+}

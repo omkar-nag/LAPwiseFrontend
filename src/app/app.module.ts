@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { ToastrModule } from 'ngx-toastr';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
@@ -19,6 +20,11 @@ import { MatListModule } from '@angular/material/list';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { NotesComponent } from './components/notes/notes.component'
+import { AssessmentsComponent } from './components/assessments/assessments.component';
+import { AssessmentCardComponent } from './components/assessments/assessment-card/assessment-card.component'
+import { SkeletonLoaderModule } from './components/assessments/skeleton-loader/skeleton-loader.module';
+import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
+
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -34,7 +40,9 @@ const materialComponents = [
   MatCardModule,
   MatToolbarModule,
   MatSidenavModule,
-  MatListModule
+  MatListModule,
+  MatTooltipModule,
+  ToastrModule.forRoot()
 ]
 
 @NgModule({
@@ -43,7 +51,11 @@ const materialComponents = [
     routingComponents,
     NavbarComponent,
     SignupComponent,
-    NotesComponent
+    NotesComponent,
+    AssessmentsComponent,
+    AssessmentCardComponent,
+    UpdateProfileComponent,
+
   ],
   imports: [
     HttpClientModule,
@@ -51,7 +63,9 @@ const materialComponents = [
     FormsModule,
     AppRoutingModule,
 
+
     materialComponents,
+    SkeletonLoaderModule,
 
     JwtModule.forRoot({
       config: {
