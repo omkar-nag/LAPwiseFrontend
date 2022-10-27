@@ -6,6 +6,8 @@
     </div>
     <div>
         <div *ngIf="isUserAuthenticated()" else unauthenticated>
+            <a class="routeBtn" routerLink="/notes"
+                routerLinkActive="active">Notes</a>
             <a class="routeBtn" routerLink="/departments"
                 routerLinkActive="active">Departments</a>
             <a class="routeBtn" routerLink="/employees"

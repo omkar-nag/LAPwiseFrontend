@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+
+
+<mat-toolbar color="primary">
+    <mat-toolbar-row> 
+        <button mat-icon-button> 
+            <mat-icon (click)="sidenav.toggle();">menu</mat-icon>
+        </button>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" [fixedInViewport]="false">
+        <mat-nav-list *ngFor="let note of notes;let i = index">
+            <a (click)="loadNote(note['id'],i)" mat-list-item>{{note['title']}}</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content [style.left]="sidenav.opened ? '.25%' : '0'">
+        <div *ngIf = "!zeroNotes" style="height: 70vh;" contenteditable="true">
+            {{notes[currentNoteIndex]['content']}}
+        </div>
+        <div>
+            <button  class="btn-notes-crud" >New Note</button>
+            <button class="btn-notes-crud" >Save Changes</button>
+            
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -6,6 +6,7 @@ import { EmployeeListComponent } from './components/employee-list/employee-list.
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { NotesComponent } from './components/notes/notes.component';
 
 // All the exposed routes
 const routes: Routes = [
@@ -16,6 +17,8 @@ const routes: Routes = [
 
   { path: 'departments', component: DepartmentListComponent, canActivate: [AuthService] },
   { path: 'employees', component: EmployeeListComponent, canActivate: [AuthService] },
+  { path: 'notes', component: NotesComponent, canActivate: [AuthService] },
+  
 
 ];
 
@@ -27,4 +30,4 @@ const routes: Routes = [
 export class AppRoutingModule { }
 
 // Corresponding components for the routes
-export const routingComponents = [HomeComponent, LoginComponent, DepartmentListComponent, EmployeeListComponent]
+export const routingComponents = [HomeComponent, LoginComponent, DepartmentListComponent, EmployeeListComponent, NotesComponent]

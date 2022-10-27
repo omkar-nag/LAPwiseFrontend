@@ -14,8 +14,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { SignupComponent } from './components/signup/signup.component'
+import { SignupComponent } from './components/signup/signup.component';
+import { NotesComponent } from './components/notes/notes.component'
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -29,7 +32,9 @@ const materialComponents = [
   MatSnackBarModule,
   MatButtonModule,
   MatCardModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatSidenavModule,
+  MatListModule
 ]
 
 @NgModule({
@@ -37,7 +42,8 @@ const materialComponents = [
     AppComponent,
     routingComponents,
     NavbarComponent,
-    SignupComponent
+    SignupComponent,
+    NotesComponent
   ],
   imports: [
     HttpClientModule,
@@ -59,4 +65,3 @@ const materialComponents = [
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
