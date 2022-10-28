@@ -14,13 +14,18 @@ import { Profile } from '../profileview/profile.model';
 export class UpdateProfileComponent implements OnInit {
   profile:Profile={}as Profile
   constructor(private router: Router,public service:UserServiceService,private _snackBar: MatSnackBar,
-    private toastr:ToastrService) { }
+    private toastr:ToastrService,public uservice:UserServiceService) { }
 
     hidePassword:boolean=false;
   ngOnInit(): void {
     this.service.getUser().subscribe((data:Profile)=>{
       this.profile=data;
-      console.log(this.profile)
+      console.log(this.profile);
+      this.uservice.formData.firstName=this.profile.firstName;
+      this.uservice.formData.lastName=this.profile.lastName;
+      this.uservice.formData.userName=this.profile.userName;
+      this.uservice.formData.email=this.profile.email;
+      this.uservice.formData.password=this.profile.password;
   });
 }
   openSnackBar(message: string, action: string) {

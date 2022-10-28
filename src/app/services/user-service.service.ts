@@ -18,10 +18,10 @@ export class UserServiceService {
   //  return(this.http.put(`${this.baseURL}/${this.userservice.getUserID()}`,this.formData));
  // }
    putUser(){
-    this.formData.Id=this.userservice.getUserID();
+    this.formData.id=this.userservice.getUserID();
     return(this.http.put(`${this.baseURL}/${this.userservice.getUserID()}`,this.formData));
   }
   getUser():Observable<Profile>{
-    return(this.http.get<Profile>(`${this.baseURL}/${this.userservice.getUserID()}`))
+    return(this.http.get<Profile>(`${this.baseURL}/${+this.userservice.getUserID()}`))
 }
 }

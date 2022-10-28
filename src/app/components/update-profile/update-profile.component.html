@@ -10,10 +10,10 @@
                 <input
                     id="firstname"
                     name="FirstName"
-                    value="{{profile.firstName}}"
-                    #FirstName="ngModel"
-                    [(ngModel)]="service.formData.FirstName"
-                
+                   value="{{profile.firstName}}"
+                    
+                    [(ngModel)]="service.formData.firstName"
+                   
                     placeholder="First Name" >
                 </mat-form-field>
 
@@ -23,10 +23,10 @@
                     id="lastname"
                     name="LastName"
                     value="{{profile.lastName}}"
-                    #LastName="ngModel"
-                    [(ngModel)]="service.formData.LastName"
+                    #lastName="ngModel"
+                    [(ngModel)]="service.formData.lastName"
                
-                    placeholder="Last Name" >
+                    placeholder="Last Name">
             </mat-form-field>
 
             <mat-form-field appearance="outline">
@@ -36,10 +36,10 @@
                     name="Email"
                     style="width: 80%;height: 50px;"
                     value="{{profile.email}}"
-                    #Email="ngModel"
+                    #email="ngModel"
                     type="email"
                     [email]="true"
-                    [(ngModel)]="service.formData.Email"
+                    [(ngModel)]="service.formData.email"
                   
                     placeholder="email" >
             </mat-form-field>
@@ -50,8 +50,8 @@
                     id="username"
                     name="UserName"
                     value="{{profile.userName}}"
-                    #UserName="ngModel"
-                    [(ngModel)]="service.formData.UserName"
+                    #userName="ngModel"
+                    [(ngModel)]="service.formData.userName"
                  
                     placeholder="Username" >
             </mat-form-field>
@@ -62,9 +62,9 @@
                     id="password"
                     name="Password"
                     value="{{profile.password}}"
-                    #Password="ngModel"
+                    #password="ngModel"
                     [type]="hidePassword ? 'password' : 'text'"
-                    [(ngModel)]="service.formData.Password"
+                    [(ngModel)]="service.formData.password"
                   
                     placeholder="Password" >
                 <button type=button
