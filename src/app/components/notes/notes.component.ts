@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, throwIfEmpty } from 'rxjs';
+import { Toast } from 'ngx-toastr';
+import { Observable } from 'rxjs';
 import { UserDataService } from 'src/app/services/user-data.service';
 import { NotesModel } from './notes.model';
 import { NotesService } from './notes.service';
@@ -9,13 +10,15 @@ import { NotesService } from './notes.service';
   templateUrl: './notes.component.html',
   styleUrls: ['./notes.component.css']
 })
+
+
+
 export class NotesComponent implements OnInit {
 
   userId:number = this.userDataService.getUserID();
-  notes:any[] = [];
-  currentNoteId:number = 0;
+  notes:NotesModel[] = [];
   currentNoteIndex:number =  0;
-  zeroNotes:boolean = false;
+
   constructor(private userDataService:UserDataService, private notesService:NotesService) { 
   
     
@@ -25,17 +28,46 @@ export class NotesComponent implements OnInit {
     this.notesService.getAllNotesByUserId(this.userId)
     .subscribe((data:NotesModel[])=>{
       this.notes = data;
-      
+      if(this.notes.length===0){
+        this.newNote();
+      }
     });
   }
 
-  // newNote(){
-  //   this.notesService.
-  // }
-  loadNote(noteId:string, index:number){
-    
-    console.log(this.notes);
-    this.currentNoteId = parseInt(noteId);
+  deleteNote(note:NotesModel){
+    alert(this.notes[this.currentNoteIndex].title.toString() +" Delete successfully!!");
+    this.notes.splice(this.currentNoteIndex,1);
+    this.currentNoteIndex=this.currentNoteIndex-1;
+    if(this.currentNoteIndex==-1){
+      this.currentNoteIndex=0;
+    }
+    if(this.notes.length===0){
+      this.newNote();
+    }
+    this.notesService.deleteNote(note);
+  }
+
+
+  newNote(){
+    const currNote:NotesModel = {
+      "id":this.currentNoteIndex+1,
+      "title":"Untitled",
+      "content":"Take a Quick Note!",
+      "userId" : +this.userId
+    };
+    // * Adding into local object
+
+    this.notes.push( currNote );
+    this.loadNote(this.notes.length-1)  
+    this.notesService.postNote(currNote);
+  }
+  
+  saveNote(note:NotesModel){
+    this.notesService.putNotes(this.notes);
+  }
+
+
+  loadNote(index:number){
     this.currentNoteIndex = index;
   }
 }

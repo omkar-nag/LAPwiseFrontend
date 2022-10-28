@@ -1,7 +1,43 @@
-.btn-notes-crud{
-  height: 10vh;
-  width: 20vh; 
-  margin-left: 30%;
-  border-radius: 20px;
+[contenteditable] {
+  outline: 0px solid transparent;
+}
+
+.note-title{
+  margin: 0 auto;
+  flex: 1 1 auto;
+  text-align: center;
   background-color: #ff9800;
+  border: 0;
+}
+/* #btns{
+  position: fixed;
+  bottom: 0%;
+}
+.btn{
+  display: inline-block;
+} */
+textarea{
+  min-width: 1000px;
+  background-color: #f8f9fa;
+  outline: 0px solid transparent;
+  border: 0px;
+  resize:none;
+  min-height: 60vh;
+}
+.grid-container{
+  display: grid;
+  grid-template-rows: 7fr 1fr;
+}
+.grid-item-1{
+  scroll-behavior: smooth;
+  max-height: 600px;
+}
+.grid-item-2{
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+}
+.btn{
+  margin-left: 25%;
+  width: 35%;
+
 }
