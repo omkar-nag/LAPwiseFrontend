@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.userName = this.userDataService.getUserName();
-    console.log(this.userDataService.getUserID() + this.userDataService.getUserName() + this.userDataService.isUserAuthenticated());
   }
 
 }

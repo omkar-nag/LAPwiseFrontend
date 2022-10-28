@@ -1,0 +1,71 @@
+<app-navbar></app-navbar>
+
+
+<div class="container">
+
+    <div class="flex-center" *ngIf="quizStatus == 1">
+
+
+        <p class="heading">Instructions</p>
+
+        <mat-card style="padding: 50px;">
+            <ul>
+                <li>This assessment belongs to the topic: {{topicTitle}}.</li>
+                <li>It consists of {{questionCount}} Questions in total.</li>
+                <li>Multiple Choice Questions with only ONE valid answer.</li>
+                <li>Each Question carries 1 marks, and your score will be
+                    calculated
+                    towards the end.</li>
+                <li>There is NO time limit, take your time and answer them
+                    wisely.</li>
+                <li>You can always reattempt the assessment anytime.</li>
+            </ul>
+        </mat-card>
+        <p class="heading">ALL THE BEST!!</p>
+        <button mat-raised-button color="primary" (click)="quizStatus= 2">START
+            QUIZ</button>
+    </div>
+
+    <div *ngIf="quizStatus == 2">
+
+        <h1>Question {{currQuestion + 1}} out of {{questionCount}}</h1>
+        <mat-progress-bar mode="determinate" [value]="progressValue"></mat-progress-bar>
+        <app-quiz-question
+            [question]="questionList[currQuestion]['question']"
+            [answer]="questionList[currQuestion]['answer']"
+            [options]="questionList[currQuestion]['options'].split('|')"
+            (submitScore)="nextQuestion($event)"></app-quiz-question>
+    </div>
+
+    <div *ngIf="quizStatus == 3" class="flex-center">
+
+        <p class="heading">
+            Congratulations on completing the assessment! 🎉🎉
+        </p>
+        <!-- <p class="result-p"> Total Questions: {{questionCount}}</p>
+        <p class="result-p" style="color: green;">Right Answers: {{currScore}}</p>
+        <p class="result-p" style="color: red;">Wrong Answers: {{questionCount -
+            currScore}}</p>
+        <p>Your final score: {{(currScore/questionCount)*100}}</p> -->
+        <table class="mat-table">
+            <tr class="mat-header-row">
+                <th class="mat-header-cell">Total Questions</th>
+                <th class="mat-header-cell">Right</th>
+                <th class="mat-header-cell">Wrong</th>
+                <th class="mat-header-cell">Final Score</th>
+            </tr>
+            <tr class="mat-row">
+                <td class="mat-cell">{{questionCount}}</td>
+                <td class="mat-cell">{{currScore}}</td>
+                <td class="mat-cell">{{questionCount - currScore}}</td>
+                <td class="mat-cell">{{(currScore/questionCount)*100}}</td>
+            </tr>
+        </table>
+        <div>
+            <button (click)="router.navigate(['/assessments'])" class="m-4"
+                mat-stroked-button>Back To Assessments</button>
+            <button (click)="router.navigate(['/assessments'])" class="m-4"
+                mat-stroked-button>View Previous Results</button>
+        </div>
+    </div>
+</div>

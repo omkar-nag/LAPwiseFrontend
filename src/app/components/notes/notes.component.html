@@ -1,26 +1,41 @@
 <app-navbar></app-navbar>
+
 <mat-toolbar color="primary">
     <mat-toolbar-row> 
         <button mat-icon-button> 
             <mat-icon (click)="sidenav.toggle();">menu</mat-icon>
         </button>
+    <input type="text" [(ngModel)]="notes[currentNoteIndex].title" class="note-title" id="note-title" contenteditable="true">
+
+    <!-- </input> -->
     </mat-toolbar-row>
 </mat-toolbar>
 
 <mat-sidenav-container>
     <mat-sidenav #sidenav mode="side" [fixedInViewport]="false">
         <mat-nav-list *ngFor="let note of notes;let i = index">
-            <a (click)="loadNote(note['id'],i)" mat-list-item>{{note['title']}}</a>
+            <a (click)="loadNote(i)" mat-list-item>{{note.title}}</a>
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content [style.left]="sidenav.opened ? '.25%' : '0'">
-        <div *ngIf = "!zeroNotes" style="height: 70vh;" contenteditable="true">
-            {{notes[currentNoteIndex]['content']}}
-        </div>
-        <div>
-            <button  class="btn-notes-crud" >New Note</button>
-            <button class="btn-notes-crud" >Save Changes</button>
-            
-        </div>
+        <div id="container" class="grid-container" style="font-size:large;height: 70vh; margin: 5% 5% 0 10%;" >
+
+            <div >
+            <textarea type="text"  id="note-content" class="grid-item-1" contenteditable="true" [(ngModel)]="notes[currentNoteIndex].content">
+            </textarea>
+            </div>
+            <div id="btns" class="grid-item-2"> 
+                <button class = "btn" mat-raised-button (click)="newNote()"color="primary">
+                    New Note
+                </button>
+                <button class="btn" mat-raised-button color="primary" (click)="saveNote(notes[currentNoteIndex])" >
+                    Save Changes
+                </button>
+                <button class="btn" mat-raised-button color="primary" (click)="deleteNote(notes[currentNoteIndex])" >
+                    Delete Note
+                </button>
+                
+            </div>   
+     </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

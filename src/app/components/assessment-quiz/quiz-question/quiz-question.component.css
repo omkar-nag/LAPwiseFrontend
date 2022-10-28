@@ -1,0 +1,30 @@
+.quiz-option {
+    width: 100%;
+}
+
+.option-card {
+    margin: 30px 50px;
+    padding: 0;
+    /* background-color: #D4D4D4; */
+}
+
+.main-card {
+    margin: 50px;
+    padding: 30px;
+    background-color: rgb(250, 250, 250);
+
+}
+
+.mat-card {
+    box-shadow: 0px 2px 1px -1px #ff9800;
+}
+
+::ng-deep.mat-radio-label {
+    padding: 20px !important;
+}
+
+.submit {
+    font-weight: 500;
+    font-size: 18px;
+    background-color: #ff9800;
+}

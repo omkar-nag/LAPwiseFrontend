@@ -3,9 +3,10 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 500px;
+    width: 800px;
     margin: auto;
     margin-top: 200px;
+    background-color: bisque;
 }
 
 button {

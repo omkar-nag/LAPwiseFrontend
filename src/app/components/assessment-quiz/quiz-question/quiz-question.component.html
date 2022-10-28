@@ -1,0 +1,18 @@
+<mat-card class="main-card">
+    <mat-card-title>{{question}}</mat-card-title>
+    <mat-radio-group [(ngModel)]="radioGroup" aria-label="Select an option">
+        <mat-card
+            *ngFor="let choice of options"
+            class="option-card">
+            <mat-radio-button
+                class="quiz-option"
+                (change)="updateChoice($event)"
+                [value]="choice">
+                {{choice}}
+            </mat-radio-button></mat-card>
+    </mat-radio-group>
+
+    <mat-card-actions class="flex-center">
+        <button class="submit" (click)="verifyAnswer()" mat-button>Submit</button>
+    </mat-card-actions>
+</mat-card>

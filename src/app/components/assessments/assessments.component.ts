@@ -12,7 +12,6 @@ import { AssessmentsCardModel, AssessmentsQuizModel, AssessmentsTopicModel } fro
 export class AssessmentsComponent implements OnInit {
 
   assessmentCardsUnattempted: Array<AssessmentsCardModel> = [];
-
   assessmentCardsAttempted: Array<AssessmentsCardModel> = [];
   assessmentCardsCompleted: Array<AssessmentsCardModel> = [];
 
@@ -42,7 +41,6 @@ export class AssessmentsComponent implements OnInit {
 
           });
 
-          console.log(response);
           this.contentFetched = true;
         },
         error: (err: HttpErrorResponse) => {

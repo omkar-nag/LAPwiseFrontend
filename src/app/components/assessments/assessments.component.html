@@ -8,6 +8,7 @@
             <div class="grid-container">
                 <div *ngFor='let item of assessmentCardsUnattempted;'>
                     <app-assessment-card
+                        [assessmentID]="item['AssessmentID']"
                         [title]="item['Title']"
                         [questionCount]="item['Quiz']['QuestionCount']"
                         [quizID]="item['Quiz']['Id']"
@@ -19,10 +20,11 @@
         </div>
 
         <div *ngIf="assessmentCardsAttempted.length != 0" class="section">
-            <p class="heading">One-up your previous lap 🏁</p>
+            <p class="heading">Beat your previous best 🏁</p>
             <div class="grid-container">
                 <div *ngFor='let item of assessmentCardsAttempted;'>
                     <app-assessment-card
+                        [assessmentID]="item['AssessmentID']"
                         [title]="item['Title']"
                         [questionCount]="item['Quiz']['QuestionCount']"
                         [quizID]="item['Quiz']['Id']"
@@ -38,6 +40,7 @@
             <div class="grid-container">
                 <div *ngFor='let item of assessmentCardsCompleted;'>
                     <app-assessment-card
+                        [assessmentID]="item['AssessmentID']"
                         [title]="item['Title']"
                         [questionCount]="item['Quiz']['QuestionCount']"
                         [quizID]="item['Quiz']['Id']"

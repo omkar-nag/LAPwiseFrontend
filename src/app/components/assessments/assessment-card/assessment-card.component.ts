@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class AssessmentCardComponent implements OnInit {
 
+  @Input() assessmentID: number = -1;
+
   @Input() topicID: number = -1;
 
   @Input() quizID: number = -1;
@@ -23,7 +25,6 @@ export class AssessmentCardComponent implements OnInit {
   constructor(public router: Router) { }
 
   ngOnInit(): void {
-    console.log(this.title, this.bestScore, this.quizID);
   }
 
 }

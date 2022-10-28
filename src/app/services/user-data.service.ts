@@ -18,7 +18,7 @@ export class UserDataService {
 
   getUserID = (): number => {
     this.tokenData = this.jwtHelper.decodeToken(localStorage.getItem("jwt") || '');
-    return this.tokenData ? this.tokenData["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"] : '-1';
+    return this.tokenData ? Number(this.tokenData["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"]) : -1;
   }
 
   isUserAuthenticated = (): boolean => {

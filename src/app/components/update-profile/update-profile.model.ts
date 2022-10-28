@@ -1,8 +1,8 @@
 export class UserUpdate {
-    Id :number=0;
-    FirstName: string='';
-    LastName: string='';
-    UserName: string='';
-    Email: string='';
-    Password: string='';
+    "id" :number=0;
+    "firstName": string='';
+    "lastName": string='';
+    "userName": string='';
+    "email": string='';
+    "password": string='';
 }
