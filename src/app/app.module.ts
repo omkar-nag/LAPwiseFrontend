@@ -24,6 +24,11 @@ import { AssessmentsComponent } from './components/assessments/assessments.compo
 import { AssessmentCardComponent } from './components/assessments/assessment-card/assessment-card.component'
 import { SkeletonLoaderModule } from './components/assessments/skeleton-loader/skeleton-loader.module';
 import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
+import { ContentComponent } from './components/content/content.component';
+import { QuestionComponent } from './components/question/question.component';
+import { ScrollComponent } from './components/scroll/scroll.component';
+import { SubTopicsComponent } from './components/sub-topics/sub-topics.component';
+import { TopicsComponent } from './components/topics/topics.component';
 
 
 export function tokenGetter() {
@@ -55,6 +60,11 @@ const materialComponents = [
     AssessmentsComponent,
     AssessmentCardComponent,
     UpdateProfileComponent,
+    ContentComponent,
+    QuestionComponent,
+    ScrollComponent,
+    SubTopicsComponent,
+    TopicsComponent,
 
   ],
   imports: [

@@ -7,6 +7,9 @@ import { SignupComponent } from './components/signup/signup.component';
 import { NotesComponent } from './components/notes/notes.component';
 import { AssessmentsComponent } from './components/assessments/assessments.component';
 import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
+import { TopicsComponent } from './components/topics/topics.component';
+import { SubTopicsComponent } from './components/sub-topics/sub-topics.component';
+import { QuestionComponent } from './components/question/question.component';
 
 
 // All the exposed routes
@@ -18,7 +21,11 @@ const routes: Routes = [
   
   { path: 'notes', component: NotesComponent, canActivate: [AuthService] },
   { path: 'assessments', component: AssessmentsComponent, canActivate: [AuthService] },
-  {path : 'update-profile',component: UpdateProfileComponent},
+  { path: 'update-profile', component: UpdateProfileComponent },
+
+  { path: 'dashboard', component: TopicsComponent },
+  { path: 'dashboard/subtopic/:id', component: SubTopicsComponent },
+  { path: 'dashboard/question/:name', component: QuestionComponent }
 
 
 ];

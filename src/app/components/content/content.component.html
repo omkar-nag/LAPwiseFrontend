@@ -1,0 +1,22 @@
+<p class="lead display-7 m-1" id="{{st.name}}">
+    <u>
+        <b>
+            {{st.name}}
+        </b>
+    </u>
+</p>
+<div class="m-2">
+    {{st.content}}
+    <br>
+    <br>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="{{st.id}}" (click)="onCheckBoxClicked()">
+        <label class="form-check-label" for="flexCheckDefault">
+            Mark as Done
+        </label>
+    </div>
+    <br>
+    <button mat-raised-button color="primary" [disabled]="disabled"  [routerLink]="['/dashboard/question',st.name]" >
+        Take Test
+    </button>
+</div>

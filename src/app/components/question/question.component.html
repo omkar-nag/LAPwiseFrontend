@@ -1,0 +1,30 @@
+<br>
+<div *ngFor="let q of questions, index as j" class="container" style="font-size:large">
+    Q-{{j+1}} {{q.question}}
+    <br>
+    <br>
+    <div *ngIf="optionFormatting(q.options)">
+        <div *ngFor="let item of [].constructor(4), index as i" class="container" style="font-size:medium">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="RadioBtn{{j}}" id="RadioBtn{{j}}"
+                    value="{{splitted[i]}}" (change)="onChange($event)">
+                {{splitted[i]}}
+            </div>
+        </div>
+        <br>
+        <ng-container *ngIf="q.toggle == undefined || q.toggle == 0">
+            <button mat-stroked-button color="primary" (click)="onClick(q)">View Answer</button>
+        </ng-container>
+        <ng-container *ngIf="q.toggle===1">
+            <button mat-stroked-button color="primary" (click)="onSecondClick(q)">Hide Answer</button>
+        </ng-container>
+        <ng-container *ngIf="q.toggle===1">
+            <br>
+            <br>
+            <p class="lead">
+                <mark>The Answer is {{q.answer}}</mark>
+            </p>
+        </ng-container>
+    </div>
+    <br>
+</div>

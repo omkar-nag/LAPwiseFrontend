@@ -1,0 +1,13 @@
+.mat-card {
+    background-image: url("../../../assets/assessment-card.png");
+    background-size: cover;
+}
+
+.host {
+    position: fixed;
+    float: right;
+    cursor: pointer;
+    right: 14px;
+    bottom: 14px;
+    z-index: 100;
+  }

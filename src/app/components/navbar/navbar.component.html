@@ -11,6 +11,8 @@
             <div *ngIf="isUserAuthenticated()" else unauthenticated>
                 <a class="routeBtn" routerLink="/notes"
                 routerLinkActive="active">Notes</a>
+                <a class="routeBtn" routerLink="/dashboard"
+                routerLinkActive="active">Dashboard</a>
                 <a class="routeBtn" routerLink="/assessments"
                     routerLinkActive="active">Assessments</a>
                 <a class="routeBtn" routerLink="/login" (click)="logOut()"
@@ -33,3 +35,4 @@
             </div>
         </div></div>
 </mat-toolbar>
+
