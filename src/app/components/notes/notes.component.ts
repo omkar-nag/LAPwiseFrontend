@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { UserDataService } from 'src/app/services/user-data.service';
 import { NotesModel } from './notes.model';
 import { NotesService } from './notes.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-notes',
@@ -16,15 +17,22 @@ import { NotesService } from './notes.service';
 export class NotesComponent implements OnInit {
 
   userId:number = this.userDataService.getUserID();
+  note:NotesModel = {
+    id:1,
+    content:"",
+    title:"",
+    userId:+this.userId
+  }
   notes:NotesModel[] = [];
   currentNoteIndex:number =  0;
 
-  constructor(private userDataService:UserDataService, private notesService:NotesService) { 
+  constructor(private userDataService:UserDataService, private notesService:NotesService,private _snackBar: MatSnackBar) { 
   
     
   }
 
   ngOnInit():void {
+    this.notes.push(this.note);
     this.notesService.getAllNotesByUserId(this.userId)
     .subscribe((data:NotesModel[])=>{
       this.notes = data;
@@ -35,7 +43,7 @@ export class NotesComponent implements OnInit {
   }
 
   deleteNote(note:NotesModel){
-    alert(this.notes[this.currentNoteIndex].title.toString() +" Delete successfully!!");
+    this._snackBar.open("\""+this.notes[this.currentNoteIndex].title.toString() +"\" deleted successfully!!", "OK");
     this.notes.splice(this.currentNoteIndex,1);
     this.currentNoteIndex=this.currentNoteIndex-1;
     if(this.currentNoteIndex==-1){
