@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { JwtModule } from '@auth0/angular-jwt';
 import { AppComponent } from './app.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -91,6 +91,7 @@ const materialComponents = [
 
     materialComponents,
     SkeletonLoaderModule,
+    ReactiveFormsModule,
 
     ToastrModule.forRoot(),
 
