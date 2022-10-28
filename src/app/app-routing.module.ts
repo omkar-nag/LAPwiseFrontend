@@ -31,9 +31,9 @@ const routes: Routes = [
   { path: 'update-profile', component: UpdateProfileComponent, title: "lapwise - Update Profile" },
   { path: 'profileview', component: ProfileviewComponent, title: "lapwise - View Profile" },
 
-  { path: 'dashboard', component: TopicsComponent },
-  { path: 'dashboard/subtopic/:id', component: SubTopicsComponent },
-  { path: 'dashboard/question/:name', component: QuestionComponent }
+  { path: 'dashboard', component: TopicsComponent, canActivate: [AuthService] },
+  { path: 'dashboard/subtopic/:id', component: SubTopicsComponent, canActivate: [AuthService] },
+  { path: 'dashboard/question/:name', component: QuestionComponent, canActivate: [AuthService] }
 
 
 
