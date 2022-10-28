@@ -15,21 +15,16 @@ import { AssessmentQuizComponent } from './components/assessment-quiz/assessment
 const routes: Routes = [
   { path: '', component: HomeComponent, title: "lapwise - Home" },
 
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
-  
-  { path: 'notes', component: NotesComponent, canActivate: [AuthService] },
-  { path: 'assessments', component: AssessmentsComponent, canActivate: [AuthService] },
-  {path : 'update-profile',component: UpdateProfileComponent},
-  {path : 'profileview',component: ProfileviewComponent},
-
   { path: 'login', component: LoginComponent, title: "lapwise - Login" },
   { path: 'signup', component: SignupComponent, title: "lapwise - Signup" },
 
+  { path: 'notes', component: NotesComponent, canActivate: [AuthService], title: "lapwise - Notes" },
+
+  { path: 'update-profile', component: UpdateProfileComponent, title: "lapwise - Update Profile" },
+  { path: 'profileview', component: ProfileviewComponent, title: "lapwise - View Profile" },
+
   { path: 'assessments', component: AssessmentsComponent, canActivate: [AuthService], title: "lapwise - Assessments" },
   { path: 'quiz', component: AssessmentQuizComponent, canActivate: [AuthService], title: "lapwise - Assessment Quiz" },
-  { path: 'notes', component: NotesComponent, canActivate: [AuthService] },
-  { path: 'update-profile', component: UpdateProfileComponent },
 
 ];
 
@@ -41,4 +36,4 @@ const routes: Routes = [
 export class AppRoutingModule { }
 
 // Corresponding components for the routes
-export const routingComponents = [HomeComponent, LoginComponent, AssessmentsComponent, NotesComponent,UpdateProfileComponent,ProfileviewComponent]
+export const routingComponents = [HomeComponent, LoginComponent, AssessmentsComponent, NotesComponent, UpdateProfileComponent, ProfileviewComponent]
