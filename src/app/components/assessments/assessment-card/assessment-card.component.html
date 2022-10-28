@@ -1,16 +1,21 @@
 <mat-card>
     <div class="card-row">
         <span>
-            <p class="title">
-                {{title}}
-            </p>
-            <p>Your Best: <b>{{bestScore}}%</b></p>
+            <mat-card-title>{{title}}</mat-card-title>
+            <mat-card-subtitle>Your Best: {{bestScore}}</mat-card-subtitle>
         </span>
-        <span class="flex-center"><p class="title">{{questionCount}}</p>
+        <span class="flex-center p-2"><p class="title">{{questionCount}}</p>
             Questions</span>
     </div>
     <div class="card-row">
+
         <a class="rel-topic" href="/topic/{{topicID}}">Topic: {{topicTitle}}</a>
-        <button (click)="router.navigate(['/']);" mat-fab><mat-icon>play_arrow</mat-icon></button>
+        <button
+            (click)="router.navigate(['/quiz'],
+            {state: { quizID: quizID, assessmentID: assessmentID , topicTitle:
+            topicTitle }});"
+            mat-fab>
+            <mat-icon>play_arrow</mat-icon>
+        </button>
     </div>
 </mat-card>

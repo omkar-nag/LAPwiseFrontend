@@ -11,6 +11,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -27,6 +28,10 @@ import { UpdateProfileComponent } from './components/update-profile/update-profi
 import { ProfileviewComponent } from './components/profileview/profileview.component';
 
 
+import { AssessmentQuizComponent } from './components/assessment-quiz/assessment-quiz.component';
+import { QuizQuestionComponent } from './components/assessment-quiz/quiz-question/quiz-question.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatTableModule } from '@angular/material/table';
 export function tokenGetter() {
   return localStorage.getItem("jwt");
 }
@@ -43,7 +48,9 @@ const materialComponents = [
   MatSidenavModule,
   MatListModule,
   MatTooltipModule,
-  ToastrModule.forRoot()
+  MatRadioModule,
+  MatProgressBarModule,
+  MatTableModule,
 ]
 
 @NgModule({
@@ -57,6 +64,8 @@ const materialComponents = [
     AssessmentCardComponent,
     UpdateProfileComponent,
     ProfileviewComponent,
+    AssessmentQuizComponent,
+    QuizQuestionComponent,
 
   ],
   imports: [
@@ -65,9 +74,10 @@ const materialComponents = [
     FormsModule,
     AppRoutingModule,
 
-
     materialComponents,
     SkeletonLoaderModule,
+
+    ToastrModule.forRoot(),
 
     JwtModule.forRoot({
       config: {
