@@ -4,26 +4,29 @@
             <h1>Update Profile</h1>
 
         
-            <mat-form-field appearance="outline">
+          
+     <mat-form-field appearance="outline">
                 <mat-label>First Name</mat-label>
                 <input
                     id="firstname"
-                    name="Firstname"
+                    name="FirstName"
+                    value="{{profile.firstName}}"
                     #FirstName="ngModel"
                     [(ngModel)]="service.formData.FirstName"
-                    matInput
-                    placeholder="First Name" required>
-            </mat-form-field>
+                
+                    placeholder="First Name" >
+                </mat-form-field>
 
             <mat-form-field appearance="outline">
                 <mat-label>Last Name</mat-label>
                 <input
                     id="lastname"
                     name="LastName"
+                    value="{{profile.lastName}}"
                     #LastName="ngModel"
                     [(ngModel)]="service.formData.LastName"
-                    matInput
-                    placeholder="Last Name" required>
+               
+                    placeholder="Last Name" >
             </mat-form-field>
 
             <mat-form-field appearance="outline">
@@ -31,12 +34,14 @@
                 <input
                     id="email"
                     name="Email"
+                    style="width: 80%;height: 50px;"
+                    value="{{profile.email}}"
                     #Email="ngModel"
                     type="email"
                     [email]="true"
                     [(ngModel)]="service.formData.Email"
-                    matInput
-                    placeholder="email" required>
+                  
+                    placeholder="email" >
             </mat-form-field>
 
             <mat-form-field appearance="outline">
@@ -44,10 +49,11 @@
                 <input
                     id="username"
                     name="UserName"
+                    value="{{profile.userName}}"
                     #UserName="ngModel"
                     [(ngModel)]="service.formData.UserName"
-                    matInput
-                    placeholder="Username" required>
+                 
+                    placeholder="Username" >
             </mat-form-field>
 
             <mat-form-field appearance="outline">
@@ -55,11 +61,12 @@
                 <input
                     id="password"
                     name="Password"
+                    value="{{profile.password}}"
                     #Password="ngModel"
                     [type]="hidePassword ? 'password' : 'text'"
                     [(ngModel)]="service.formData.Password"
-                    matInput
-                    placeholder="Password" required>
+                  
+                    placeholder="Password" >
                 <button type=button
                     mat-icon-button matSuffix
                     (click)="hidePassword=!hidePassword"

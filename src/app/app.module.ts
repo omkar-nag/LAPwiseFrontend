@@ -24,6 +24,7 @@ import { AssessmentsComponent } from './components/assessments/assessments.compo
 import { AssessmentCardComponent } from './components/assessments/assessment-card/assessment-card.component'
 import { SkeletonLoaderModule } from './components/assessments/skeleton-loader/skeleton-loader.module';
 import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
+import { ProfileviewComponent } from './components/profileview/profileview.component';
 
 
 export function tokenGetter() {
@@ -55,6 +56,7 @@ const materialComponents = [
     AssessmentsComponent,
     AssessmentCardComponent,
     UpdateProfileComponent,
+    ProfileviewComponent,
 
   ],
   imports: [

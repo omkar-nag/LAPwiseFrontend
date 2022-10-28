@@ -7,6 +7,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { NotesComponent } from './components/notes/notes.component';
 import { AssessmentsComponent } from './components/assessments/assessments.component';
 import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
+import { ProfileviewComponent } from './components/profileview/profileview.component';
 
 
 // All the exposed routes
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'notes', component: NotesComponent, canActivate: [AuthService] },
   { path: 'assessments', component: AssessmentsComponent, canActivate: [AuthService] },
   {path : 'update-profile',component: UpdateProfileComponent},
+  {path : 'profileview',component: ProfileviewComponent},
 
 
 ];
@@ -31,4 +33,4 @@ const routes: Routes = [
 export class AppRoutingModule { }
 
 // Corresponding components for the routes
-export const routingComponents = [HomeComponent, LoginComponent, AssessmentsComponent, NotesComponent]
+export const routingComponents = [HomeComponent, LoginComponent, AssessmentsComponent, NotesComponent,UpdateProfileComponent,ProfileviewComponent]
