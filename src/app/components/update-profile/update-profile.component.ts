@@ -15,8 +15,9 @@ export class UpdateProfileComponent implements OnInit {
   profile:Profile={}as Profile
   constructor(private router: Router,public service:UserServiceService,private _snackBar: MatSnackBar,
     private toastr:ToastrService,public uservice:UserServiceService) { }
-
+    invalidSignUp: boolean = false;
     hidePassword:boolean=false;
+    toolTip: string = "The password must be of a minimum 8 characters. The password must contain atleast 1 upper case character, 1 lower case character, 1 special character and 1 numeric value";
   ngOnInit(): void {
     this.service.getUser().subscribe((data:Profile)=>{
       this.profile=data;
@@ -34,6 +35,7 @@ export class UpdateProfileComponent implements OnInit {
     });
   }
 Update(form: NgForm){
+  if (form.valid) {
   this.service.putUser().subscribe(
     res=>{
    
@@ -41,12 +43,15 @@ Update(form: NgForm){
       this.router.navigate(["/profileview"])},
       
       err=>{console.log(err);
- 
+        this.invalidSignUp = true;
         this.openSnackBar("UPdate Failed", "OK");
         this.router.navigate(["/profileview"])
       });
     
 }
-
+else {
+  this.invalidSignUp = true;
+}
+}
 }
 

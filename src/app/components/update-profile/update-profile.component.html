@@ -3,7 +3,9 @@
         <mat-card class="login-card">
             <h1>Update Profile</h1>
 
-        
+            <p *ngIf="invalidSignUp" class="invalid-login">Invalid credentials.
+                <mat-icon class='colorInfo' [matTooltip]="toolTip">info_outline</mat-icon>
+            </p>
           
      <mat-form-field appearance="outline">
                 <mat-label>First Name</mat-label>
@@ -11,7 +13,7 @@
                     id="firstname"
                     name="FirstName"
                    value="{{profile.firstName}}"
-                    
+                   #lastName="ngModel"
                     [(ngModel)]="service.formData.firstName"
                    
                     placeholder="First Name" >
