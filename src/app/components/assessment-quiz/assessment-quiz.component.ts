@@ -46,6 +46,7 @@ export class AssessmentQuizComponent implements OnInit {
 
   progressValue: number = 0;
 
+  loading: boolean = false;
 
   constructor(public router: Router, private httpClient: HttpClient, private userDataService: UserDataService) {
 
@@ -105,8 +106,10 @@ export class AssessmentQuizComponent implements OnInit {
     }
     else {
       this.submitAssessmentResult();
+      this.loading = true;
       setTimeout(() => {
         this.quizStatus = 3;
+        this.loading = false;
       }, 3000);
     }
   }

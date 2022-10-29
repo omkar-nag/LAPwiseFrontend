@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card [style.background-image]="randomBgImage()">
     <div class="card-row">
         <span>
             <mat-card-title>{{title}}</mat-card-title>
@@ -9,7 +9,8 @@
     </div>
     <div class="card-row">
 
-        <a class="rel-topic" href="/topic/{{topicID}}">Topic: {{topicTitle}}</a>
+        <a class="rel-topic" href="/dashboard/subtopic/{{topicID}}">Topic:
+            {{topicTitle}}</a>
         <button
             (click)="router.navigate(['/quiz'],
             {state: { quizID: quizID, assessmentID: assessmentID , topicTitle:

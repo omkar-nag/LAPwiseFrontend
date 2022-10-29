@@ -1,5 +1,5 @@
 .mat-card {
-    background-image: url("../../../../assets/bg.jpg");
+    /* background-image: url("../../../../assets/bg.jpg"); */
     background-size: cover;
 }
 
@@ -8,9 +8,13 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    color: white;
+    color: white !important;
     text-shadow: 0 0 20px black;
     margin-top: 30px;
+}
+
+.mat-card-subtitle {
+    color: white;
 }
 
 .mat-fab {
@@ -28,7 +32,6 @@
     height: auto;
     width: auto;
 }
-
 
 .title {
     font-size: 30px;

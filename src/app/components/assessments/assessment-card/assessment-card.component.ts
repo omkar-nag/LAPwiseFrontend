@@ -22,6 +22,10 @@ export class AssessmentCardComponent implements OnInit {
 
   @Input() bestScore: number = -1;
 
+  randomBgImage = (): string => {
+    return `url("../../../../assets/a-card-${Math.floor(Math.random() * 8)}.png")`;
+  }
+
   constructor(public router: Router) { }
 
   ngOnInit(): void {

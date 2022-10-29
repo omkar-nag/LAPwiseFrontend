@@ -1,13 +1,11 @@
 <app-navbar></app-navbar>
+<div style="height: 68px;"></div>
 
+<app-fullscr-loader *ngIf="loading"></app-fullscr-loader>
 
 <div class="container">
-
     <div class="flex-center" *ngIf="quizStatus == 1">
-
-
         <p class="heading">Instructions</p>
-
         <mat-card style="padding: 50px;">
             <ul>
                 <li>This assessment belongs to the topic: {{topicTitle}}.</li>
@@ -18,7 +16,7 @@
                     towards the end.</li>
                 <li>There is NO time limit, take your time and answer them
                     wisely.</li>
-                <li>You can always reattempt the assessment anytime.</li>
+                <li>You can reattempt the assessment anytime.</li>
             </ul>
         </mat-card>
         <p class="heading">ALL THE BEST!!</p>
@@ -42,11 +40,6 @@
         <p class="heading">
             Congratulations on completing the assessment! 🎉🎉
         </p>
-        <!-- <p class="result-p"> Total Questions: {{questionCount}}</p>
-        <p class="result-p" style="color: green;">Right Answers: {{currScore}}</p>
-        <p class="result-p" style="color: red;">Wrong Answers: {{questionCount -
-            currScore}}</p>
-        <p>Your final score: {{(currScore/questionCount)*100}}</p> -->
         <table class="mat-table">
             <tr class="mat-header-row">
                 <th class="mat-header-cell">Total Questions</th>
@@ -58,7 +51,7 @@
                 <td class="mat-cell">{{questionCount}}</td>
                 <td class="mat-cell">{{currScore}}</td>
                 <td class="mat-cell">{{questionCount - currScore}}</td>
-                <td class="mat-cell">{{(currScore/questionCount)*100}}</td>
+                <td class="mat-cell">{{((currScore/questionCount)*100).toFixed(2)}}</td>
             </tr>
         </table>
         <div>

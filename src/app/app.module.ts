@@ -40,6 +40,7 @@ import { QuestionComponent } from './components/question/question.component';
 import { ScrollComponent } from './components/scroll/scroll.component';
 import { SubTopicsComponent } from './components/sub-topics/sub-topics.component';
 import { TopicsComponent } from './components/topics/topics.component';
+import { FullscrLoaderComponent } from './components/assessment-quiz/fullscr-loader/fullscr-loader.component';
 
 
 export function tokenGetter() {
@@ -81,6 +82,7 @@ const materialComponents = [
     ProfileviewComponent,
     AssessmentQuizComponent,
     QuizQuestionComponent,
+    FullscrLoaderComponent,
 
   ],
   imports: [
