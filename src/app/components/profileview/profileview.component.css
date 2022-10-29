@@ -1,0 +1,25 @@
+
+.login-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 800px;
+    margin: auto;
+    margin-top: 200px;
+    background-color: rgb(240, 193, 136);
+}
+.button {
+    border: none;
+    border-color: rgb(120, 42, 165);
+    background: rgb(236, 196, 51);
+}
+
+.mat-form-field {
+    width: 300px;
+    justify-content: center;
+}
+
+.mat-lebal{
+    text-size-adjust: 10px;
+}
