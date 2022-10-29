@@ -1,7 +1,7 @@
 <form #form="ngForm" (ngSubmit)="Update(form)">
     <div>
         <mat-card class="login-card">
-            <h1>Update Profile</h1>
+           <br><br> <h1 style="font-size:40px;">Update Profile</h1><br>
 
             <p *ngIf="invalidSignUp" class="invalid-login">Invalid credentials.
                 <mat-icon class='colorInfo' [matTooltip]="toolTip">info_outline</mat-icon>
@@ -12,6 +12,7 @@
                 <input
                     id="firstname"
                     name="FirstName"
+                    style="width: 80%;height: 50px;font-size:20px"
                    value="{{profile.firstName}}"
                    #lastName="ngModel"
                     [(ngModel)]="service.formData.firstName"
@@ -24,6 +25,7 @@
                 <input
                     id="lastname"
                     name="LastName"
+                    style="width: 80%;height: 50px;font-size:20px;"
                     value="{{profile.lastName}}"
                     #lastName="ngModel"
                     [(ngModel)]="service.formData.lastName"
@@ -36,7 +38,7 @@
                 <input
                     id="email"
                     name="Email"
-                    style="width: 80%;height: 50px;"
+                    style="width: 80%;height: 50px;font-size:20px"
                     value="{{profile.email}}"
                     #email="ngModel"
                     type="email"
@@ -51,6 +53,7 @@
                 <input
                     id="username"
                     name="UserName"
+                    style="width: 80%;height: 50px;font-size:20px"
                     value="{{profile.userName}}"
                     #userName="ngModel"
                     [(ngModel)]="service.formData.userName"
@@ -63,6 +66,7 @@
                 <input
                     id="password"
                     name="Password"
+                    style="width: 80%;height: 50px;font-size:20px"
                     value="{{profile.password}}"
                     #password="ngModel"
                     [type]="hidePassword ? 'password' : 'text'"

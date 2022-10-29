@@ -1,57 +1,50 @@
+
+
 <div>
-    <mat-card class="login-card">
-        <h1><legend> User Profile</legend></h1>
-        
+    <mat-card class="profile-card">
+    <h1 style="font-size:40px;">User Profile</h1>
+    <br><br>
+<table >
+    
+<tr>
+    <td><mat-label style="font-size: 20px;">FirstName</mat-label></td>
+    <td><mat-label style="font-size:20px; background-size: 20px; background-color:white">{{profile.firstName}}</mat-label></td>
+</tr>
+<br>
 
+<tr>
+    <td><mat-label style="font-size: 20px;">LastName</mat-label></td>
+    <td> <mat-label style="font-size:20px; background-color:white ;">{{profile.lastName}}</mat-label></td>
+</tr>
+<br>
 
-    <table>
-
-        <tr>
-            <td><mat-label>First Name:</mat-label></td>
-            
-            <td><input value="{{profile.firstName}}"></td>
-            <br><br><br>
-        </tr>
-        
-
-        
-        <tr>
-            <td><mat-label >Last Name:</mat-label></td>
-            <td> <input value="{{profile.lastName}}"></td>
-         <br><br><br>
-        </tr>
-
-        
-        
-         <tr>
-            <td><mat-label>User Name:</mat-label></td>
-            <td><input value="{{profile.userName}}"></td>
-            <br><br><br>
-            </tr>
+    <tr>
+    <td><mat-label style="font-size: 20px;">UserName</mat-label></td>
+    <td><mat-label style="font-size:20px; background-color:white ;">{{profile.userName}}</mat-label></td>
+    </tr>
+    <br>
 
 
     
-        <tr>
-        <td><mat-label>Password:</mat-label></td>
-        <td><input value="{{profile.password}}"></td>
-        <br><br><br>
-        </tr>
-       
+    <tr>
+    <td><mat-label style="font-size: 20px;">Password</mat-label></td>
+    <td><mat-label style="font-size:20px;background-color:white ;">{{profile.password}}</mat-label></td>
+    </tr>
+    <br>
 
+    <tr>
+    <td> <mat-label style="font-size: 20px;">Email</mat-label></td>
+    <td><mat-label style="font-size:20px;background-color:white ;">{{profile.email}}</mat-label></td>
+    </tr>
+    <br>
     
-        <tr>
-            <td><mat-label>Email:</mat-label>
-                
-            <td><input value="{{profile.email}}"></td>
-            <br><br><br>
-        </tr>
+
         
-        <tr>
-            <br><br>
-        <td><button mat-raised-button color="accent"><a class="routeBtn" routerLink="/update-profile"
-            routerLinkActive="active">Update Profile</a></button></td>
-        </tr>
+    <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button mat-raised-button color="accent"><a class="routeBtn" routerLink="/update-profile"
+    routerLinkActive="active">Update Profile</a></button></td>
+    </tr>
     
-    </table>
+</table>
 </mat-card>
 </div>

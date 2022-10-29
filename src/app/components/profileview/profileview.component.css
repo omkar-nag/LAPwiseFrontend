@@ -1,5 +1,4 @@
-
-.login-card {
+.profile-card {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7,19 +6,17 @@
     width: 800px;
     margin: auto;
     margin-top: 200px;
-    background-color: rgb(240, 193, 136);
+    background-color: bisque;
 }
+
 .button {
     border: none;
-    border-color: rgb(120, 42, 165);
-    background: rgb(236, 196, 51);
+    background: #ffffff;
+    
 }
 
-.mat-form-field {
-    width: 300px;
-    justify-content: center;
+mat-label{
+    display: block;
+    width:200;
 }
 
-.mat-lebal{
-    text-size-adjust: 10px;
-}
