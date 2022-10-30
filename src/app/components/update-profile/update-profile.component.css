@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 800px;
+    width: 900px;
     margin: auto;
     margin-top: 200px;
     background-color: bisque;
@@ -12,6 +12,9 @@
 button {
     border: none;
     background: #ffffff;
+    
+	
+	
 }
 
 .mat-form-field {

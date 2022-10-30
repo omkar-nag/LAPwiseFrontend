@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 800px;
+    width: 900px;
     margin: auto;
     margin-top: 200px;
     background-color: bisque;
@@ -12,11 +12,11 @@
 .button {
     border: none;
     background: #ffffff;
-    
+    position: absolute;
+	top: 95%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
 }
 
-mat-label{
-    display: block;
-    width:200;
-}
 

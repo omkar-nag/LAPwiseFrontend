@@ -7,9 +7,10 @@
                 <mat-icon class='colorInfo' [matTooltip]="toolTip">info_outline</mat-icon>
             </p>
           
-     <mat-form-field appearance="outline">
-                <mat-label>First Name</mat-label>
-                <input
+            <table>
+                <tr>
+                <td><mat-label style="font-size: 20px;">First Name</mat-label></td>
+                <td><input
                     id="firstname"
                     name="FirstName"
                     style="width: 80%;height: 50px;font-size:20px"
@@ -17,12 +18,13 @@
                    #lastName="ngModel"
                     [(ngModel)]="service.formData.firstName"
                    
-                    placeholder="First Name" >
-                </mat-form-field>
+                    placeholder="First Name" ></td>
+                    </tr><br><br>
+               
 
-            <mat-form-field appearance="outline">
-                <mat-label>Last Name</mat-label>
-                <input
+                <tr>
+                <td><mat-label style="font-size: 20px;">Last Name</mat-label></td>
+                <td><input
                     id="lastname"
                     name="LastName"
                     style="width: 80%;height: 50px;font-size:20px;"
@@ -30,12 +32,13 @@
                     #lastName="ngModel"
                     [(ngModel)]="service.formData.lastName"
                
-                    placeholder="Last Name">
-            </mat-form-field>
+                    placeholder="Last Name"></td>
+                    </tr><br><br>
+            
 
-            <mat-form-field appearance="outline">
-                <mat-label>Email</mat-label>
-                <input
+            
+                 <tr><td><mat-label style="font-size: 20px;">Email</mat-label></td>
+                 <td><input
                     id="email"
                     name="Email"
                     style="width: 80%;height: 50px;font-size:20px"
@@ -45,12 +48,13 @@
                     [email]="true"
                     [(ngModel)]="service.formData.email"
                   
-                    placeholder="email" >
-            </mat-form-field>
+                    placeholder="email" ></td>
+                    </tr><br><br>
+           
 
-            <mat-form-field appearance="outline">
-                <mat-label>Username</mat-label>
-                <input
+            
+                <tr><td><mat-label style="font-size: 20px;">Username</mat-label></td>
+                <td> <input
                     id="username"
                     name="UserName"
                     style="width: 80%;height: 50px;font-size:20px"
@@ -58,12 +62,13 @@
                     #userName="ngModel"
                     [(ngModel)]="service.formData.userName"
                  
-                    placeholder="Username" >
-            </mat-form-field>
+                    placeholder="Username" ></td>
+                    </tr><br><br>
+           
 
-            <mat-form-field appearance="outline">
-                <mat-label>Password</mat-label>
-                <input
+            
+                <tr><td><mat-label style="font-size: 20px;">Password</mat-label></td>
+                <td><input
                     id="password"
                     name="Password"
                     style="width: 80%;height: 50px;font-size:20px"
@@ -74,16 +79,21 @@
                   
                     placeholder="Password" 
                     pattern="(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+                    
                 <button type=button
                     mat-icon-button matSuffix
                     (click)="hidePassword=!hidePassword"
                     [attr.aria-label]="'hidePassword password'"
                     [attr.aria-pressed]="hidePassword">
                     <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </button>
-            </mat-form-field>
-
-            <button mat-raised-button color="primary" type="submit">Update</button>
+                </button></td>
+                 </tr><br><br>
+            
+                <tr>
+                   <button mat-raised-button color="primary" type="submit" style="width: 100px;  
+                   height: 50px;font-size:20px; align-items: center">Update</button>
+                </tr>
+            </table>
       
         </mat-card>
     </div>

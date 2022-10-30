@@ -39,12 +39,12 @@ Update(form: NgForm){
   this.service.putUser().subscribe(
     res=>{
    
-      this.openSnackBar("UPdated Successfully", "OK");
+      this.openSnackBar("Updated Successfully", "OK");
       this.router.navigate(["/profileview"])},
       
       err=>{console.log(err);
         this.invalidSignUp = true;
-        this.openSnackBar("UPdate Failed", "OK");
+        this.openSnackBar("Update Failed", "OK");
         this.router.navigate(["/profileview"])
       });
     
