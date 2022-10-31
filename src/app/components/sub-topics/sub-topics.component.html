@@ -15,6 +15,12 @@
     <hr>
     <h1 class="heading">Contents</h1>
 
+    <div *ngFor="let t of topic">
+        <div *ngIf="t.id === pid" style="font-size:medium;">
+            {{t.content}}
+        </div>
+    </div>
+ 
     <div *ngFor="let t of sub">
         <app-content [st]="t"></app-content>
     </div>
