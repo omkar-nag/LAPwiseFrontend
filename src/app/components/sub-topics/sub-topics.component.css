@@ -1,5 +1,5 @@
 S.mat-card {
-    background-image: url("../../../assets/assessment-card.png");
+    background-image: url("../../../assets/a-card-0.png");
     background-size: cover;
 }
 
@@ -10,4 +10,4 @@ S.mat-card {
     right: 14px;
     bottom: 14px;
     z-index: 100;
-  }
+}

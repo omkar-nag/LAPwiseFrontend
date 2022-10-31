@@ -22,6 +22,8 @@ export class LoginComponent implements OnInit {
 
   userName = '';
 
+  loading = false;
+
   credentials: LoginModel = { UserName: this.userName, Password: '' };
 
   constructor(private router: Router, private httpClient: HttpClient, private _snackBar: MatSnackBar) {
@@ -34,6 +36,7 @@ export class LoginComponent implements OnInit {
   }
 
   login = (form: NgForm) => {
+    this.loading = true;
     if (form.valid) {
       this.credentials.UserName = this.userName;
       this.httpClient.post<AuthenticatedResponse>(environment.baseUrl + "/auth/login", this.credentials)
