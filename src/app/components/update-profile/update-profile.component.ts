@@ -40,14 +40,14 @@ export class UpdateProfileComponent implements OnInit {
         res => {
 
           this.openSnackBar("Updated Successfully", "OK");
-          this.router.navigate(["/profile"])
+          this.router.navigate(["/profileview"])
         },
 
         err => {
           console.log(err);
           this.invalidSignUp = true;
           this.openSnackBar("Update Failed", "OK");
-          this.router.navigate(["/profile"])
+          this.router.navigate(["/profileview"])
         });
 
     }
