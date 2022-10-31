@@ -1,32 +1,27 @@
 <app-topics></app-topics>
 <br>
-<div class="container px-4 text-center">
-    <div class="row gx-5">
-        <div class="col" *ngFor="let t of sub">
-            <div>
+<div class="container">
+    <div class="row px-4 text-center">
+        <div class="col gx-5" *ngFor="let t of sub">
+            <a [routerLink]="['/dashboard/subtopic', t.topicsId]"
+                fragment="{{t.name}}" style="text-decoration: none;
+                font-size: medium;">
                 <mat-card>
-                    <a [routerLink]="['/dashboard/subtopic', t.topicsId]" fragment="{{t.name}}"
-                        style="text-decoration: none; font-size: medium;">
-                        <b>{{t.name}}</b>
-                    </a>
+                    <b>{{t.name}}</b>
                 </mat-card>
-            </div>
+            </a>
         </div>
     </div>
-</div>
-<hr>
-<h1>Contents</h1>
+    <hr>
+    <h1 class="heading">Contents</h1>
 
-<div *ngFor="let t of topic">
-    <div *ngIf="t.id === pid">
-        {{t.content}}
+    <div *ngFor="let t of sub">
+        <app-content [st]="t"></app-content>
     </div>
-</div>
 
 
-<div *ngFor="let t of sub">
-    <app-content [st]="t"></app-content>
+    <ng-container *ngIf="showScroll$ | async">
+        <app-scroll (scrollToTop)="onScrollClick()"></app-scroll>
+    </ng-container>
+
 </div>
-<ng-container *ngIf="showScroll$ | async">
-    <app-scroll (scrollToTop)="onScrollClick()"></app-scroll>
-</ng-container>

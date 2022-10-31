@@ -2,3 +2,10 @@
     background-image: url("../../../assets/a-card-0.png");
     background-size: cover;
 }
+
+.navbar-brand {
+    width: 100%;
+    text-align: center;
+    border-right: 1px solid white;
+    margin-right: 0;
+}

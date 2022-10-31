@@ -23,7 +23,8 @@ export class AssessmentCardComponent implements OnInit {
   @Input() bestScore: number = -1;
 
   randomBgImage = (): string => {
-    return `url("../../../../assets/a-card-${Math.floor(Math.random() * 8)}.png")`;
+    // return `url("../../../../assets/a-card-${Math.floor(Math.random() * 8)}.png")`;
+    return `url("../../../../assets/a-card-0.png")`;
   }
 
   constructor(public router: Router) { }

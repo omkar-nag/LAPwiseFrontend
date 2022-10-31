@@ -17,7 +17,7 @@ export class AssessmentsComponent implements OnInit {
 
   contentFetched: boolean = false;
 
-  constructor(private httpClient: HttpClient, private router: Router) { }
+  constructor(private httpClient: HttpClient, public router: Router) { }
 
   ngOnInit(): void {
 

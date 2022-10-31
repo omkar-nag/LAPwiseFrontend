@@ -31,4 +31,5 @@ img {
     align-items: center !important;
     justify-content: center !important;
     flex-direction: column !important;
+    /* text-align: center !important; */
 }
