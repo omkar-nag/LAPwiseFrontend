@@ -7,7 +7,8 @@
                 <mat-icon>menu</mat-icon>
             </button>
             <input type="text" [(ngModel)]="notes[currentNoteIndex].title"
-                class="note-title" id="note-title" contenteditable="true">
+                class="note-title" id="note-title" autofocus
+                contenteditable="true">
 
             <!-- </input> -->
         </mat-toolbar-row>
@@ -16,7 +17,7 @@
     <mat-sidenav-container>
         <mat-sidenav #sidenav mode="side">
             <mat-nav-list *ngFor="let note of notes;let i= index">
-                <a (click)="loadNote(i)" mat-list-item>{{note.title}}</a>
+                <a (click)="loadNote(i)"  mat-list-item>{{note.title}}</a>
             </mat-nav-list>
         </mat-sidenav>
         <mat-sidenav-content>

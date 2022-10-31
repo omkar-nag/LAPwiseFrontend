@@ -1,78 +1,43 @@
 
+<app-navbar></app-navbar>
 
-<div>
-    <mat-card class="profile-card">
-    <br><h1 style="font-size:40px;">User Profile</h1>
-    <br>
-<table >
-    
-<tr>
-    <td><mat-label style="font-size: 20px;">First Name</mat-label></td>
-    <td><input 
-        style="width: 80%;height: 50px;font-size:20px"
-        type ="text"
-        value="{{profile.firstName}}"
-        required disabled
-        ></td>
-</tr>
-<br><br>
+<mat-card class="container flex-center mt-5">
+    <p class="heading">My Details</p>
 
-<tr>
-    <td><mat-label style="font-size: 20px;">Last Name</mat-label></td>
-    <td> <input 
-        style="width: 80%;height: 50px;font-size:20px"
-        type ="text"
-        value="{{profile.lastName}}"
-        required disabled
-        >
-    </td>
-</tr>
-<br><br>
+    <div class="flex-center flex-row">
+        <label>FirstName</label>
+        <input class="inputBox form-control" type="text"
+            value="{{profile.firstName}}" disabled>
+    </div>
 
-    <tr>
-    <td><mat-label style="font-size: 20px;">User Name</mat-label></td>
-    <td><input 
-        style="width: 80%;height: 50px;font-size:20px"
-        type ="text"
-        value="{{profile.userName}}"
-        required disabled
-    >
-    </td>
-    </tr>
-    <br><br>
+    <div class="flex-center flex-row">
+        <label>LastName</label>
+        <input class="inputBox form-control" type="text"
+            value="{{profile.lastName}}" disabled>
+    </div>
 
 
-    
-    <tr>
-    <td><mat-label style="font-size: 20px;">Password</mat-label></td>
-    <td><input 
-        style="width: 80%;height: 50px;font-size:20px"
-        type ="text"
-        value="{{profile.password}}"
-        required disabled
-    ></td>
-    </tr>
-    <br><br>
+    <div class="flex-center flex-row">
+        <label>Email</label>
+        <input class="inputBox form-control" type="text"
+            value="{{profile.email}}" disabled>
+    </div>
 
-    <tr>
-    <td> <mat-label style="font-size: 20px;">Email</mat-label></td>
-    <td><input 
-        style="width: 80%;height: 50px;font-size:20px"
-        type ="text"
-        value="{{profile.email}}"
-        required disabled
-    ></td>
-    </tr>
-    <br>
-    
+    <div class="flex-center flex-row">
+        <label>Username</label>
+        <input class="inputBox form-control" type="text"
+            value="{{profile.userName}}" disabled>
+    </div>
 
-        
-    <tr>
-    <td><button mat-raised-button color="accent" style="width: 160px;  
-        height: 50px;font-size:20px;"><a class="routeBtn" routerLink="/update-profile"
-    routerLinkActive="active">Update Profile</a></button></td>
-    </tr>
-    
-</table>
+
+    <div class="flex-center flex-row">
+        <label>Password</label>
+        <input class="inputBox form-control" type="text"
+            value="{{profile.password}}" disabled>
+    </div>
+
+
+    <button mat-raised-button color="accent"><a class="routeBtn"
+            routerLink="/update-profile"
+            routerLinkActive="active">Update Profile</a></button>
 </mat-card>
-</div>

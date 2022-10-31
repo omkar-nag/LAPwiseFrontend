@@ -1,22 +1,35 @@
-.profile-card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 900px;
-    margin: auto;
-    margin-top: 200px;
-    background-color: bisque;
+* {
+    font-size: 20px !important;
 }
 
-.button {
-    border: none;
-    background: #ffffff;
-    position: absolute;
-	top: 95%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	
+.inputBox {
+    height: 40px;
 }
 
+label {
+    width: 200px;
+}
 
+.flex-row {
+    flex-direction: row !important;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+button {
+
+    height: 50px;
+    margin: 20px;
+}
+
+.heading {
+    font-weight: 600;
+    font-size: 28px !important;
+    line-height: 120%;
+    margin-bottom: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

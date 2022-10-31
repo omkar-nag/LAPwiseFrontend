@@ -4,24 +4,26 @@
     <div class="container" style="display:flex; justify-content:
         space-between;">
         <div>
-            <a routerLink="/"><img src="../../assets/logo-dark-new.svg"
-                    alt="LAPwise"></a>
+            <a routerLink="/"><img src="../../assets/logo-dark-new.svg" alt="lapwise"></a>
         </div>
         <div>
             <div *ngIf="isUserAuthenticated()" else unauthenticated>
-           
-                <a class="routeBtn" routerLink="/profileview"
-                routerLinkActive="active"> Profile</a>
-                <a class="routeBtn" routerLink="/notes"
-                routerLinkActive="active">Notes</a>
+
                 <a class="routeBtn" routerLink="/dashboard"
-                routerLinkActive="active">Dashboard</a>
+                    routerLinkActive="active">Dashboard</a>
+
                 <a class="routeBtn" routerLink="/assessments"
                     routerLinkActive="active">Assessments</a>
+
+                <a class="routeBtn" routerLink="/notes"
+                    routerLinkActive="active">Notes</a>
+
+                <a class="routeBtn" routerLink="/profileview"
+                    routerLinkActive="active"> Profile</a>
+
                 <a class="routeBtn" routerLink="/login" (click)="logOut()"
-                    routerLinkActive="active">
-                    Logout
-                    <mat-icon aria-hidden="false">logout</mat-icon>
+                    routerLinkActive="active">Logout<mat-icon
+                        aria-hidden="false">logout</mat-icon>
                 </a>
             </div>
             <div>
@@ -39,5 +41,3 @@
         </div></div>
 </mat-toolbar>
 <div style="height: 82px;"></div>
-
-
