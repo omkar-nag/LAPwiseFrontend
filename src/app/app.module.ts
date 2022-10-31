@@ -21,6 +21,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTableModule } from '@angular/material/table';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -63,6 +65,8 @@ const materialComponents = [
   MatRadioModule,
   MatProgressBarModule,
   MatTableModule,
+  MatTabsModule,
+  MatExpansionModule
 ]
 
 @NgModule({

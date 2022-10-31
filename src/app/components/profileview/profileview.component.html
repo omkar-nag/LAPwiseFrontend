@@ -1,43 +1,125 @@
 
 <app-navbar></app-navbar>
 
-<mat-card class="container flex-center mt-5">
-    <p class="heading">My Details</p>
+<div class="container mt-5">
+    <mat-tab-group mat-align-tabs="center" #tabGroup
+        (selectedTabChange)="tabChanged($event)">
+        <mat-tab label="My Profile">
+            <div class="flex-center mt-5 ">
+                <div class="flex-center flex-row">
+                    <label>FirstName</label>
+                    <input class="inputBox form-control" type="text"
+                        value="{{profile.firstName}}" disabled>
+                </div>
 
-    <div class="flex-center flex-row">
-        <label>FirstName</label>
-        <input class="inputBox form-control" type="text"
-            value="{{profile.firstName}}" disabled>
-    </div>
-
-    <div class="flex-center flex-row">
-        <label>LastName</label>
-        <input class="inputBox form-control" type="text"
-            value="{{profile.lastName}}" disabled>
-    </div>
-
-
-    <div class="flex-center flex-row">
-        <label>Email</label>
-        <input class="inputBox form-control" type="text"
-            value="{{profile.email}}" disabled>
-    </div>
-
-    <div class="flex-center flex-row">
-        <label>Username</label>
-        <input class="inputBox form-control" type="text"
-            value="{{profile.userName}}" disabled>
-    </div>
+                <div class="flex-center flex-row">
+                    <label>LastName</label>
+                    <input class="inputBox form-control" type="text"
+                        value="{{profile.lastName}}" disabled>
+                </div>
 
 
-    <div class="flex-center flex-row">
-        <label>Password</label>
-        <input class="inputBox form-control" type="text"
-            value="{{profile.password}}" disabled>
-    </div>
+                <div class="flex-center flex-row">
+                    <label>Email</label>
+                    <input class="inputBox form-control" type="text"
+                        value="{{profile.email}}" disabled>
+                </div>
+
+                <div class="flex-center flex-row">
+                    <label>Username</label>
+                    <input class="inputBox form-control" type="text"
+                        value="{{profile.userName}}" disabled>
+                </div>
 
 
-    <button mat-raised-button color="accent"><a class="routeBtn"
-            routerLink="/update-profile"
-            routerLinkActive="active">Update Profile</a></button>
-</mat-card>
+                <div class="flex-center flex-row">
+                    <label>Password</label>
+                    <input class="inputBox form-control" type="text"
+                        value="{{profile.password}}" disabled>
+                </div>
+
+
+                <button mat-raised-button color="accent" class="updateBtn"><a
+                        class="routeBtn"
+                        routerLink="/update-profile"
+                        routerLinkActive="active">Update Profile</a></button>
+            </div>
+        </mat-tab>
+        <mat-tab label="Assessment Results">
+            <app-fullscr-loader *ngIf="!resultsFetched"></app-fullscr-loader>
+            <div class="example-action-buttons">
+                <button mat-button (click)="accordion.openAll()">Expand All</button>
+                <button mat-button (click)="accordion.closeAll()">Collapse All</button>
+            </div>
+            <mat-accordion multi>
+                <mat-expansion-panel *ngFor="let item of assessmentResults">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title class="heading">
+                            {{item.assessments.title}}
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            <mat-icon>{{item.score == 100 ? 'auto_awesome' :
+                                ''}}</mat-icon>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+
+
+                    <div class="card-row">
+                        <!-- <span>
+                            <p>Total Questions:
+                                {{item.assessments.quizzes.questionCount}}
+                            </p>
+                            <p>Right Answers:
+                                {{(item.assessments.quizzes.questionCount*item.score)
+                                / 100}}
+                            </p>
+                            <p>Wrong Answers:
+                                {{item.assessments.quizzes.questionCount
+                                -
+                                ((item.assessments.quizzes.questionCount*item.score)
+                                / 100)}}
+                            </p>
+                        </span> -->
+                        <div style="width: 100%; padding-right: 50px;">
+                            <table class="mat-table col-10">
+                                <tr class="mat-header-row">
+                                    <th class="mat-header-cell">Total Questions</th>
+                                    <th class="mat-header-cell">Right</th>
+                                    <th class="mat-header-cell">Wrong</th>
+                                </tr>
+                                <tr class="mat-row">
+                                    <td class="mat-cell">{{item.assessments.quizzes.questionCount}}</td>
+                                    <td class="mat-cell">{{(item.assessments.quizzes.questionCount*item.score)
+                                        / 100}}</td>
+                                    <td class="mat-cell">{{item.assessments.quizzes.questionCount
+                                        -
+                                        ((item.assessments.quizzes.questionCount*item.score)
+                                        / 100)}}</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <span class="flex-center col-2 mat-header-cell">Score<p
+                                class="title">{{item.score}}</p>
+                        </span>
+                    </div>
+                    <div class="navigation">
+                        <a mat-button class="rel-topic"
+                            href="/dashboard/subtopic/{{item.assessments.topics.id}}">Topic:
+                            {{item.assessments.topics.name}}</a>
+                        <button
+                            (click)="router.navigate(['/quiz'],
+                            {state: { quizID: item.assessments.quizzes.id,
+                            assessmentID: item.assessments.id, topicTitle:
+                            item.assessments.topics.name}});" mat-raised-button
+                            color="accent">Re-Attempt
+                        </button>
+                    </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+
+
+        </mat-tab>
+
+    </mat-tab-group>
+</div>
