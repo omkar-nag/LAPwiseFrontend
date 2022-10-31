@@ -7,7 +7,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { NotesComponent } from './components/notes/notes.component';
 import { AssessmentsComponent } from './components/assessments/assessments.component';
 import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
-import { ProfileviewComponent } from './components/profileview/profileview.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { AssessmentQuizComponent } from './components/assessment-quiz/assessment-quiz.component';
 import { TopicsComponent } from './components/topics/topics.component';
 import { SubTopicsComponent } from './components/sub-topics/sub-topics.component';
@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'quiz', component: AssessmentQuizComponent, canActivate: [AuthService], title: "lapwise - Assessment Quiz" },
 
   { path: 'update-profile', component: UpdateProfileComponent, title: "lapwise - Update Profile" },
-  { path: 'profileview', component: ProfileviewComponent, title: "lapwise - View Profile" },
+  { path: 'profile', component: ProfileComponent, title: "lapwise - View Profile" },
 
   { path: 'dashboard', component: TopicsComponent, canActivate: [AuthService] },
   { path: 'dashboard/subtopic/:id', component: SubTopicsComponent, canActivate: [AuthService] },
@@ -47,4 +47,4 @@ const routes: Routes = [
 export class AppRoutingModule { }
 
 // Corresponding components for the routes
-export const routingComponents = [HomeComponent, LoginComponent, AssessmentsComponent, NotesComponent, UpdateProfileComponent, ProfileviewComponent]
+export const routingComponents = [HomeComponent, LoginComponent, AssessmentsComponent, NotesComponent, UpdateProfileComponent, ProfileComponent]

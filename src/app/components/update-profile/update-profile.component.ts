@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from '../../services/user-service.service';
 import { NgForm } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
-import { UserUpdate } from './update-profile.model';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Profile } from '../profileview/profile.model';
+import { Profile } from '../profile/profile.model';
 @Component({
   selector: 'app-update-profile',
   templateUrl: './update-profile.component.html',
@@ -13,8 +11,7 @@ import { Profile } from '../profileview/profile.model';
 })
 export class UpdateProfileComponent implements OnInit {
   profile: Profile = {} as Profile
-  constructor(private router: Router, public service: UserServiceService, private _snackBar: MatSnackBar,
-    private toastr: ToastrService, public uservice: UserServiceService) { }
+  constructor(private router: Router, public service: UserServiceService, private _snackBar: MatSnackBar, public uservice: UserServiceService) { }
   invalidSignUp: boolean = false;
   hidePassword: boolean = false;
   toolTip: string = "The password must be of a minimum 8 characters. The password must contain atleast 1 upper case character, 1 lower case character, 1 special character and 1 numeric value";

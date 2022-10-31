@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { UserUpdate } from '../components/update-profile/update-profile.model';
 import { HttpClient } from '@angular/common/http';
 import { UserDataService } from './user-data.service';
-import { Profile } from '../components/profileview/profile.model';
+import { Profile } from '../components/profile/profile.model';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 @Injectable({

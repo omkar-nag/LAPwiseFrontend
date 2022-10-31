@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { ToastrModule } from 'ngx-toastr';
 import { JwtModule } from '@auth0/angular-jwt';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -34,7 +33,7 @@ import { AssessmentQuizComponent } from './components/assessment-quiz/assessment
 import { QuizQuestionComponent } from './components/assessment-quiz/quiz-question/quiz-question.component';
 
 import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
-import { ProfileviewComponent } from './components/profileview/profileview.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 import { SkeletonLoaderModule } from './components/assessments/skeleton-loader/skeleton-loader.module';
 import { ContentComponent } from './components/sub-topics/content/content.component';
@@ -83,7 +82,7 @@ const materialComponents = [
     ScrollComponent,
     SubTopicsComponent,
     TopicsComponent,
-    ProfileviewComponent,
+    ProfileComponent,
     AssessmentQuizComponent,
     QuizQuestionComponent,
     FullscrLoaderComponent,
@@ -99,7 +98,6 @@ const materialComponents = [
     SkeletonLoaderModule,
     ReactiveFormsModule,
 
-    ToastrModule.forRoot(),
 
     JwtModule.forRoot({
       config: {

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Toast } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { UserDataService } from 'src/app/services/user-data.service';
 import { NotesModel } from './notes.model';

@@ -32,6 +32,8 @@ export class AssessmentQuizComponent implements OnInit {
 
   topicTitle: string = '';
 
+  assessmentTitle: string = '';
+
   questionCount: number = 0;
 
   questionList: any;
@@ -70,6 +72,8 @@ export class AssessmentQuizComponent implements OnInit {
           this.questionList = response['questions'];
           this.questionCount = this.questionList.length;
           this.dataFetched = true;
+          this.assessmentTitle = response['title'];
+          console.log(response)
         },
         error: (err: HttpErrorResponse) => {
           console.log(err);

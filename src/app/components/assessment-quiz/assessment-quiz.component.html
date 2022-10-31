@@ -5,10 +5,10 @@
 
 <div class="container">
     <div class="flex-center" *ngIf="quizStatus == 1">
-        <p class="heading">Instructions</p>
+        <p class="heading">Instructions - {{assessmentTitle}} Assessment</p>
         <mat-card style="padding: 50px;" class="mat-elevation-z5">
             <ul>
-                <li>This assessment belongs to the topic: {{topicTitle}}.</li>
+                <li>This assessment belongs to the topic <b>{{topicTitle}}</b>.</li>
                 <li>It consists of {{questionCount}} Questions in total.</li>
                 <li>Multiple Choice Questions with only ONE valid answer.</li>
                 <li>Each Question carries 1 marks, and your score will be
@@ -31,7 +31,7 @@
         <app-quiz-question
             [question]="questionList[currQuestion]['question']"
             [answer]="questionList[currQuestion]['answer']"
-            [options]="questionList[currQuestion]['options'].split('|')"
+            [options]="questionList[currQuestion]['options'].split(',')"
             (submitScore)="nextQuestion($event)"></app-quiz-question>
     </div>
 
@@ -57,7 +57,8 @@
         <div>
             <button (click)="router.navigate(['/assessments'])" class="m-4"
                 mat-stroked-button>Back To Assessments</button>
-            <button (click)="router.navigate(['/assessments'])" class="m-4"
+            <button (click)="router.navigate(['/profile'],
+                {state: {selectedIndex: 1}})" class="m-4"
                 mat-stroked-button>View Previous Results</button>
         </div>
     </div>
