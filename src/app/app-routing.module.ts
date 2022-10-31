@@ -20,10 +20,10 @@ const routes: Routes = [
 
   { path: 'login', component: LoginComponent, title: "lapwise - Login" },
   { path: 'signup', component: SignupComponent, title: "lapwise - Signup" },
-  
+
   { path: 'notes', component: NotesComponent, canActivate: [AuthService] },
   { path: 'assessments', component: AssessmentsComponent, canActivate: [AuthService] },
-  
+
 
   { path: 'assessments', component: AssessmentsComponent, canActivate: [AuthService], title: "lapwise - Assessments" },
   { path: 'quiz', component: AssessmentQuizComponent, canActivate: [AuthService], title: "lapwise - Assessment Quiz" },

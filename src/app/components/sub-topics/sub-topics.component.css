@@ -11,3 +11,16 @@ S.mat-card {
     bottom: 14px;
     z-index: 100;
 }
+
+b {
+    color: #0d6efd;
+}
+
+
+.heading {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 120%;
+    margin: 30px 0;
+    text-align: center;
+}

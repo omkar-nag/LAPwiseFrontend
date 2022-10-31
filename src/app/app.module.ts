@@ -37,13 +37,12 @@ import { UpdateProfileComponent } from './components/update-profile/update-profi
 import { ProfileviewComponent } from './components/profileview/profileview.component';
 
 import { SkeletonLoaderModule } from './components/assessments/skeleton-loader/skeleton-loader.module';
-import { ContentComponent } from './components/content/content.component';
+import { ContentComponent } from './components/sub-topics/content/content.component';
 import { QuestionComponent } from './components/question/question.component';
-import { ScrollComponent } from './components/scroll/scroll.component';
+import { ScrollComponent } from './components/sub-topics/scroll/scroll.component';
 import { SubTopicsComponent } from './components/sub-topics/sub-topics.component';
 import { TopicsComponent } from './components/topics/topics.component';
 import { FullscrLoaderComponent } from './components/assessment-quiz/fullscr-loader/fullscr-loader.component';
-import { AssessmentResultsComponent } from './components/assessment-results/assessment-results.component';
 
 
 export function tokenGetter() {
@@ -88,7 +87,6 @@ const materialComponents = [
     AssessmentQuizComponent,
     QuizQuestionComponent,
     FullscrLoaderComponent,
-    AssessmentResultsComponent,
 
   ],
   imports: [
