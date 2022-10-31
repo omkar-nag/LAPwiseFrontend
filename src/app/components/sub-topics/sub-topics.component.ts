@@ -19,6 +19,7 @@ export class SubTopicsComponent implements OnInit {
   subtopic: SubTopics[] = []
   topic: Topics[] = []
   sub: SubTopics[] = []
+  pid: number | any
 
   readonly showScroll$: Observable<boolean> = fromEvent(
     this.document,
@@ -45,8 +46,8 @@ export class SubTopicsComponent implements OnInit {
 
     this.activatedRoute.paramMap.subscribe(param => {
       let x = param.get('id')
-      let pid = x === null || x === undefined ? 0 : parseInt(x);
-      this.subtopicService.GetSubTopicByTopicId(pid).subscribe((data: SubTopics[]) => {
+      this.pid = x === null || x === undefined ? 0 : parseInt(x);
+      this.subtopicService.GetSubTopicByTopicId(this.pid).subscribe((data: SubTopics[]) => {
         this.sub = data;
         console.log(this.sub);
       })
