@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Toast } from 'ngx-toastr';
-import { Observable } from 'rxjs';
 import { UserDataService } from 'src/app/services/user-data.service';
 import { NotesModel } from './notes.model';
 import { NotesService } from './notes.service';
@@ -23,8 +21,9 @@ export class NotesComponent implements OnInit {
     userId: +this.userId
   }
 
-  notes: NotesModel[] = [];
+  notes: Array<NotesModel> =  [];
   currentNoteIndex: number = 0;
+  
 
   constructor(private userDataService: UserDataService, private notesService: NotesService, private _snackBar: MatSnackBar) { }
 
@@ -54,25 +53,36 @@ export class NotesComponent implements OnInit {
 
 
   newNote() {
+    
     const currNote: NotesModel = {
-      "id": this.currentNoteIndex + 1,
+      "id": -1,
       "title": "*Untitled",
       "content": "Take a Quick Note!",
       "userId": +this.userId
     };
-    // * Adding into local object
+    
 
-    this.notes.push(currNote);
-    this.loadNote(this.notes.length - 1)
-    this.notesService.postNote(currNote);
+
+    this.notesService.postNote(currNote)
+    .subscribe((data:NotesModel[])=>{
+      this.notes =data;
+      this.loadNote(this.notes.length - 1);
+    });
+
   }
 
   saveNote(note: NotesModel) {
-    this.notesService.putNotes(this.notes);
+    this.notesService.putNotes(this.notes)
+    .subscribe((data:NotesModel[])=>{
+
+        this.notes=data;
+        
+      });
   }
 
 
   loadNote(index: number) {
     this.currentNoteIndex = index;
   }
+  
 }
