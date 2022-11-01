@@ -29,7 +29,7 @@ label {
 }
 .invalid-login {
     color: red;
-    margin: 10px 0 30px;
+    margin-left: 700px;
 }
 .inputBox {
     height: 40px;
