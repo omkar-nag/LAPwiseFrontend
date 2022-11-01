@@ -4,7 +4,7 @@
 <form #form="ngForm" (ngSubmit)="signUp(form)">
     <div>
         <mat-card class="login-card flex-center">
-            <h1>Sign Up</h1>
+            <h1 class="heading">SIGNUP</h1>
 
             <p *ngIf="invalidSignUp" class="invalid-login">Invalid credentials.
                 <mat-icon class='colorInfo' [matTooltip]="toolTip">info_outline</mat-icon>
@@ -71,7 +71,8 @@
                 </button>
             </mat-form-field>
 
-            <button mat-raised-button color="primary" type="submit">Submit</button>
+            <button mat-raised-button color="primary" type="submit" class="btn
+                btn-signup">CREATE ACCOUNT</button>
             <p class="redirect-text">Already have an account? <a href="/login">LogIn</a></p>
         </mat-card>
     </div>

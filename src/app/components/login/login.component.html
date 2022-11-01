@@ -6,7 +6,7 @@
 <form #form="ngForm" (ngSubmit)="login(form)">
     <div>
         <mat-card class="login-card flex-center">
-            <h1>Log In</h1>
+            <h1 class="heading">LOGIN</h1>
 
             <p *ngIf="invalidLogin" class="invalid-login">Invalid Username or
                 Password. Please try again!</p>
@@ -40,7 +40,8 @@
                 </button>
             </mat-form-field>
 
-            <button mat-raised-button color="primary" type="submit">Submit</button>
+            <button mat-raised-button color="primary" type="submit" class="btn
+                btn-signup">LOGIN</button>
             <p class="redirect-text">Don't have an account? <a href="/signup">SignUp</a></p>
         </mat-card>
     </div>
