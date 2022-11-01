@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { TopicsService } from 'src/app/services/topics.service';
 import { SubTopics } from 'src/app/SubTopics';
 import { Topics } from 'src/app/Topics';
 
@@ -9,10 +10,19 @@ import { Topics } from 'src/app/Topics';
 })
 export class ContentComponent implements OnInit {
   @Input() st: SubTopics | any;
+  @Input() tt: Topics | any
+  topic: Topics | any
   disabled: boolean = true;
-  constructor() { }
+  constructor(public topicService: TopicsService) { }
 
   ngOnInit(): void {
+   
+
+    this.topicService.GetTopics().subscribe((data: Topics[]) => {
+      this.topic = data;
+      console.log(this.topic);
+    });
+
   }
 
   onCheckBoxClicked() {
@@ -23,5 +33,6 @@ export class ContentComponent implements OnInit {
       this.disabled = true;
     }
   }
+
 
 }

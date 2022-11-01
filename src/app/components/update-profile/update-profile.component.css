@@ -3,26 +3,115 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 900px;
+    width: 600px;
     margin: auto;
-    margin-top: 200px;
-    background-color: bisque;
-}
+    margin-top: 10px;
+    background-color:white;
+    border-radius: 25px     100px;
 
+}
+input{
+    margin-left: 40px;
+    background-color:ghostwhite;
+}
 button {
     border: none;
     background: #ffffff;
     
-	
-	
+		
 }
 
-.mat-form-field {
-    width: 300px;
+label {
+    width: 200px;
+    text-align: left;
+    font-weight: 500;
+    font-size: medium;
 }
-
-
 .invalid-login {
     color: red;
     margin: 10px 0 30px;
+}
+.inputBox {
+    height: 40px;
+}
+
+
+
+.flex-row {
+    flex-direction: row !important;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.updateBtn {
+    margin: 20px;
+}
+
+.heading {
+    font-weight: 500;
+    font-size: 20px !important;
+    line-height: 120%;
+    /* margin-bottom: 30px; */
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+.example-action-buttons {
+    padding: 20px 0;
+}
+
+.mat-expansion-panel-header-description {
+    justify-content: end;
+}
+
+.mat-expansion-panel {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mat-form-field+.mat-form-field {
+    margin-left: 8px;
+}
+
+
+td.mat-cell,
+th.mat-header-cell {
+    text-align: center;
+    padding: 10px 0;
+    width: 25%;
+}
+
+th.mat-header-cell {
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%);
+}
+
+.mat-table {
+    width: 100%;
+}
+
+.mat-icon {
+    color: #FF9800;
+}
+
+
+.card-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.title {
+    font-size: 50px;
+    line-height: normal;
+    color: black;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+
 }

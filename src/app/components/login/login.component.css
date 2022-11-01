@@ -2,10 +2,13 @@
     width: 500px;
     margin: auto;
     margin-top: 200px;
+    box-shadow: 1px 2px 1px -1px rgba(0,0,0,1), 
+    1px 2px 2px 1px rgb(196, 108, 8), 
+    1px 1px 3px 1px rgb(196, 129, 13);
 }
 
 button {
-    border: none;
+    border: black;
     background: #ffffff;
 }
 
@@ -17,4 +20,7 @@ button {
 .invalid-login {
     color: red;
     margin: 10px 0 30px;
+}
+.centre{
+ margin-left: 50px;
 }

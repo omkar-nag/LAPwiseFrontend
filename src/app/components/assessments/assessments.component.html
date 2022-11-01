@@ -51,11 +51,13 @@
                 </div>
             </div>
         </div>
+
+        <div class="flex-center">
+            <button (click)="router.navigate(['/profile'],
+                {state: {selectedIndex: 1}})" class="m-4"
+                mat-stroked-button>View Previous Results</button>
+        </div>
     </div>
-
-
-
-
 
 
     <div class="grid-container" *ngIf="!contentFetched">

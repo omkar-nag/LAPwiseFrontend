@@ -1,10 +1,13 @@
 .inputBox {
     height: 40px;
-    background-color: ghostwhite
+    background-color:ghostwhite;
 }
 
 label {
     width: 200px;
+    text-align: left;
+    font-weight: 500;
+    font-size: medium;
 }
 
 .flex-row {
@@ -21,7 +24,6 @@ label {
     font-weight: 500;
     font-size: 20px !important;
     line-height: 120%;
-    /* margin-bottom: 30px; */
 }
 
 a {
@@ -30,12 +32,13 @@ a {
 }
 
 
-.example-action-buttons {
+.action-buttons {
     padding: 20px 0;
 }
 
 .mat-expansion-panel-header-description {
-    justify-content: end;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .mat-expansion-panel {
@@ -47,7 +50,6 @@ a {
 .mat-form-field+.mat-form-field {
     margin-left: 8px;
 }
-
 
 td.mat-cell,
 th.mat-header-cell {
@@ -62,6 +64,11 @@ th.mat-header-cell {
 
 .mat-table {
     width: 100%;
+}
+
+::ng-deep .mat-tab-label {
+    font-weight: 500;
+    font-size: large;
 }
 
 .mat-icon {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { UserDataService } from 'src/app/services/user-data.service';
 import { NotesModel } from './notes.model';
 import { NotesService } from './notes.service';
@@ -53,7 +54,7 @@ export class NotesComponent implements OnInit {
 
 
   newNote() {
-    
+
     const currNote: NotesModel = {
       "id": -1,
       "title": "*Untitled",

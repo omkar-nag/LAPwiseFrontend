@@ -1,100 +1,111 @@
+<app-navbar></app-navbar>
 <form #form="ngForm" (ngSubmit)="Update(form)">
-    <div>
-        <mat-card class="login-card">
-           <br><br> <h1 style="font-size:40px;">Update Profile</h1><br>
+   
 
             <p *ngIf="invalidSignUp" class="invalid-login">Invalid credentials.
                 <mat-icon class='colorInfo' [matTooltip]="toolTip">info_outline</mat-icon>
             </p>
           
-            <table>
-                <tr>
-                <td><mat-label style="font-size: 20px;">First Name</mat-label></td>
-                <td><input
+            <div class="container mt-5">
+                <mat-tab-group mat-align-tabs="center" #tabGroup>
+                    <mat-tab label="Update Profile">
+                        <table align="center"><div class="flex-center mt-5 ">
+                            
+                           <div >
+                            <tr><td> <label>FirstName</label></td>
+               <td> <input
+                class="inputBox form-control"
                     id="firstname"
                     name="FirstName"
-                    style="width: 80%;height: 50px;font-size:20px"
+                   
                    value="{{profile.firstName}}"
                    #lastName="ngModel"
                     [(ngModel)]="service.formData.firstName"
                    
-                    placeholder="First Name" ></td>
-                    </tr><br><br>
+                    placeholder="First Name" ></td></tr></div>
                
 
-                <tr>
-                <td><mat-label style="font-size: 20px;">Last Name</mat-label></td>
-                <td><input
+                    <div class="flex-center flex-row">
+                        <tr><td>  <label>LastName</label></td>
+                            <td><input
+class="inputBox form-control" 
                     id="lastname"
                     name="LastName"
-                    style="width: 80%;height: 50px;font-size:20px;"
+                 
                     value="{{profile.lastName}}"
                     #lastName="ngModel"
                     [(ngModel)]="service.formData.lastName"
                
-                    placeholder="Last Name"></td>
-                    </tr><br><br>
+                    placeholder="Last Name"></td></tr></div>
             
 
-            
-                 <tr><td><mat-label style="font-size: 20px;">Email</mat-label></td>
-                 <td><input
+                    <div class="flex-center flex-row">
+                        <tr><td>   <label>Email</label></td>
+                            <td>   <input
+                 class="inputBox form-control" 
                     id="email"
                     name="Email"
-                    style="width: 80%;height: 50px;font-size:20px"
+                   
                     value="{{profile.email}}"
                     #email="ngModel"
                     type="email"
                     [email]="true"
                     [(ngModel)]="service.formData.email"
                   
-                    placeholder="email" ></td>
-                    </tr><br><br>
+                    placeholder="email" ></td></tr></div>
            
-
-            
-                <tr><td><mat-label style="font-size: 20px;">Username</mat-label></td>
-                <td> <input
+                    <div class="flex-center flex-row">
+                        <tr><td>   <label>Username</label></td>
+                            <td>  <input
+            class="inputBox form-control" 
                     id="username"
                     name="UserName"
-                    style="width: 80%;height: 50px;font-size:20px"
+                  
                     value="{{profile.userName}}"
                     #userName="ngModel"
                     [(ngModel)]="service.formData.userName"
                  
-                    placeholder="Username" ></td>
-                    </tr><br><br>
+                    placeholder="Username" ></td></tr></div>
            
-
+                    <div class="flex-center flex-row">
+                        <tr><td> <label style="margin-left: 30px;">Password</label></td>
             
-                <tr><td><mat-label style="font-size: 20px;">Password</mat-label></td>
-                <td><input
+                            <td><input 
+               class="inputBox form-control" 
                     id="password"
                     name="Password"
-                    style="width: 80%;height: 50px;font-size:20px"
+                
                     value="{{profile.password}}"
                     #password="ngModel"
                     [type]="hidePassword ? 'password' : 'text'"
                     [(ngModel)]="service.formData.password"
                   
                     placeholder="Password" 
-                    pattern="(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+                    pattern="(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"></td>
                     
-                <button type=button
+          <td>  <button type=button
+            style="width: 20px;height: 20px;background-color: ghostwhite;"
                     mat-icon-button matSuffix
                     (click)="hidePassword=!hidePassword"
                     [attr.aria-label]="'hidePassword password'"
                     [attr.aria-pressed]="hidePassword">
                     <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </button></td>
-                 </tr><br><br>
+                </button></td></tr></div>
             
-                <tr>
-                   <button mat-raised-button color="primary" type="submit" style="width: 100px;  
-                   height: 50px;font-size:20px; align-items: center">Update</button>
-                </tr>
-            </table>
-      
-        </mat-card>
-    </div>
-</form>
+                <tr><td colspan="2" rowspan="3" style="align-items: center;">   <button  mat-raised-button color="accent"  class="routeBtn">Update</button></td></tr>
+          </div>
+                        </table>
+                </mat-tab>
+
+            </mat-tab-group>
+        </div>
+    </form>
+
+
+
+                   
+              
+                  
+
+
+               
