@@ -2,8 +2,7 @@
 <br><br>
 <div *ngFor="let q of questions, index as j" class="container"
     style="font-size:large">
-    Q-{{j+1}} {{q.question}}
-    <br>
+    <pre>Q-{{j+1}} {{q.question}}</pre>
     <br>
     <div *ngIf="optionFormatting(q.options)">
         <div *ngFor="let item of [].constructor(4), index as i"
