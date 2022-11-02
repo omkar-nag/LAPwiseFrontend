@@ -5,6 +5,7 @@ import { UserDataService } from './user-data.service';
 import { Profile } from '../components/profile/profile.model';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { PasswordChangeModel } from '../components/update-profile/password.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,6 +15,7 @@ export class UserServiceService {
 
   formData: UserUpdate = new UserUpdate();
 
+
   putUser() {
     this.formData.id = this.userservice.getUserID();
     return this.http.put(`${environment.baseUrl}/User/${this.userservice.getUserID()}`, this.formData);
@@ -21,5 +23,9 @@ export class UserServiceService {
 
   getUser(): Observable<Profile> {
     return this.http.get<Profile>(`${environment.baseUrl}/User/${this.userservice.getUserID()}`);
+  }
+  putPassword(pm:PasswordChangeModel):Observable<any>{
+    console.log(pm);
+    return this.http.put(`${environment.baseUrl}/User/update-password/`, pm);
   }
 }

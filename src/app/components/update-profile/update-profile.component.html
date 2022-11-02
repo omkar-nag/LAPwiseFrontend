@@ -1,5 +1,4 @@
 <app-navbar></app-navbar>
-<form #form="ngForm" (ngSubmit)="Update(form)">
    
 
             <p *ngIf="invalidSignUp" class="invalid-login">Invalid credentials.
@@ -7,8 +6,12 @@
             </p>
           
             <div class="container mt-5">
+                
                 <mat-tab-group mat-align-tabs="center" #tabGroup>
+
                     <mat-tab label="Update Profile">
+                        
+            <form #form="ngForm" (ngSubmit)="Update(form)">
                         <table align="center"><div class="flex-center mt-5 ">
                             
                            <div >
@@ -88,11 +91,72 @@ class="inputBox form-control"
                 <tr><td colspan="2" rowspan="3" style="align-items: center;">   <button  mat-raised-button color="accent"  class="routeBtn">Update</button></td></tr>
           </div>
                         </table>
-                </mat-tab>
+                        </form>
+                    </mat-tab>
 
+                <mat-tab label="Update Password">
+                    <form #form2="ngForm" (ngSubmit)="UpdatePassword()">
+                    <table align="center">
+                        <div class="flex-center mt-5">
+                            <div class="flex-center flex-row">
+                                <tr><td> <label style="margin-left: 30px;">Old Password</label></td>
+                    
+                                    <td><input 
+                       class="inputBox form-control" 
+                            id="password"
+                            name="Password"
+                        
+                            #password="ngModel"
+                            [type]="hidePassword ? 'password' : 'text'"
+                            [(ngModel)]="passwordModel.OldPassword"
+                          
+                            placeholder="Password" 
+                            pattern="(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"></td>
+                            
+                  <td>  <button type=button
+                    style="width: 20px;height: 20px;background-color: ghostwhite;"
+                            mat-icon-button matSuffix
+                            (click)="hidePassword=!hidePassword"
+                            [attr.aria-label]="'hidePassword password'"
+                            [attr.aria-pressed]="hidePassword">
+                            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button></td></tr></div>
+                        </div>
+                        <div class="flex-center mt-5">
+                            <tr>
+                                <div class="flex-center flex-row">
+                                    <tr><td> <label style="margin-left: 30px;">New Password</label></td>
+                        
+                                        <td><input 
+                           class="inputBox form-control" 
+                                id="password"
+                                name="Password"
+                            
+                                #password="ngModel"
+                                [type]="hideNewPassword ? 'password' : 'text'"
+                                [(ngModel)]="passwordModel.NewPassword"
+                              
+                                placeholder="Password" 
+                                pattern="(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"></td>
+                                
+                      <td>  <button type=button
+                        style="width: 20px;height: 20px;background-color: ghostwhite;"
+                                mat-icon-button matSuffix
+                                (click)="hideNewPassword=!hideNewPassword"
+                                [attr.aria-label]="'hideNewPasswordassword'"
+                                [attr.aria-pressed]="hideNewPassword">
+                                <mat-icon>{{hideNewPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button></td></tr></div>
+                            </tr>
+                            <tr><td colspan="2" rowspan="3" style="align-items: center;">   <button  mat-raised-button color="accent"  class="routeBtn">Update</button></td></tr>
+
+                        </div>
+                        
+                    </table>
+                    </form>
+                </mat-tab>
             </mat-tab-group>
         </div>
-    </form>
 
 
 

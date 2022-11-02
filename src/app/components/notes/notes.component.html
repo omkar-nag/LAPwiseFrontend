@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 
-<div class="container mt-5">
+<div class="container mt-3">
     <mat-toolbar color="primary">
         <mat-toolbar-row>
             <button mat-icon-button (click)="sidenav.toggle();">
@@ -32,15 +32,15 @@
                 <div id="btns" class="grid-item-2">
                     <button mat-raised-button (click)="newNote()"
                         color="primary">
-                        New Note
+                        + Add
                     </button>
                     <button mat-raised-button color="primary"
                         (click)="saveNote(notes[currentNoteIndex])">
-                        Save Changes
+                        Save
                     </button>
                     <button mat-raised-button color="primary"
                         (click)="deleteNote(notes[currentNoteIndex])">
-                        Delete Note
+                        Delete
                     </button>
 
                 </div>
