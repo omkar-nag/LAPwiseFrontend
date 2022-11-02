@@ -42,6 +42,7 @@ import { ScrollComponent } from './components/sub-topics/scroll/scroll.component
 import { SubTopicsComponent } from './components/sub-topics/sub-topics.component';
 import { TopicsComponent } from './components/topics/topics.component';
 import { FullscrLoaderComponent } from './components/assessment-quiz/fullscr-loader/fullscr-loader.component';
+import { InstructorComponent } from './components/instructor/instructor.component';
 
 
 export function tokenGetter() {
@@ -86,6 +87,7 @@ const materialComponents = [
     AssessmentQuizComponent,
     QuizQuestionComponent,
     FullscrLoaderComponent,
+    InstructorComponent,
 
   ],
   imports: [

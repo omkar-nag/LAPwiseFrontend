@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { UserDataService } from 'src/app/services/user-data.service';
 import { NotesModel } from './notes.model';
 import { NotesService } from './notes.service';
@@ -15,22 +14,20 @@ export class NotesComponent implements OnInit {
 
   userId: number = this.userDataService.getUserID();
 
-  note: NotesModel = {
-    id: 1,
+  currentNote: NotesModel = {
+    id: -1,
     content: "",
     title: "",
     userId: +this.userId
-  }
+  };
 
   notes: Array<NotesModel> =  [];
   currentNoteIndex: number = 0;
-  
-
+  newNoteId:number = -1;
   constructor(private userDataService: UserDataService, private notesService: NotesService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    this.notes.push(this.note);
-    this.notesService.getAllNotesByUserId(this.userId)
+    this.notesService.getAllNotesByUserId()
       .subscribe((data: NotesModel[]) => {
         this.notes = data;
         if (this.notes.length === 0) {
@@ -39,51 +36,60 @@ export class NotesComponent implements OnInit {
       });
   }
 
-  deleteNote(note: NotesModel) {
-    this._snackBar.open("\"" + this.notes[this.currentNoteIndex].title.toString() + "\" deleted successfully!!", "OK");
-    this.notes.splice(this.currentNoteIndex, 1);
-    this.currentNoteIndex = this.currentNoteIndex - 1;
-    if (this.currentNoteIndex == -1) {
-      this.currentNoteIndex = 0;
+  deleteNote() {
+    
+    if(this.currentNote.id>0){
+      this.notesService.deleteNote(this.currentNote);
     }
-    if (this.notes.length === 0) {
-      this.newNote();
-    }
-    this.notesService.deleteNote(note);
+    
+    this._snackBar.open("\"" + this.currentNote.title + "\" deleted successfully!!", "OK");
+
+    this.notes.splice(this.currentNoteIndex,1);
+
+    var len = this.notes.length;
+
+    len===0?this.newNote():this.currentNote=this.notes[len-1];this.currentNoteIndex=len-1;
+    
   }
 
 
   newNote() {
 
-    const currNote: NotesModel = {
-      "id": -1,
+    const tempNote: NotesModel = {
+      "id": this.newNoteId--,
       "title": "*Untitled",
-      "content": "Take a Quick Note!",
+      "content": "",
       "userId": +this.userId
     };
+
+    this.notes.push(tempNote);
+    this.loadNote(tempNote.id);
+  
+
+  }
+
+  saveNote() {
+
+    if(this.currentNote.content===""||this.currentNote.title===""){
+      this._snackBar.open("Title or Content cannot be empty!!", "OK");
+      return;
+    }
+    this.notesService.putNote(this.currentNote)
+      .subscribe((note:NotesModel)=>{
+          this.currentNote = note;
+          this.notes[this.currentNoteIndex] = this.currentNote;
+        }
+      );
+      
+  }
+
+
+  loadNote(id: number){
     
+    this.currentNote = <NotesModel>this.notes.find(note=>note.id===id);
+    
+    this.currentNoteIndex = this.notes.findIndex(note=>note.id===this.currentNote.id);
 
-
-    this.notesService.postNote(currNote)
-    .subscribe((data:NotesModel[])=>{
-      this.notes =data;
-      this.loadNote(this.notes.length - 1);
-    });
-
-  }
-
-  saveNote(note: NotesModel) {
-    this.notesService.putNotes(this.notes)
-    .subscribe((data:NotesModel[])=>{
-
-        this.notes=data;
-        
-      });
-  }
-
-
-  loadNote(index: number) {
-    this.currentNoteIndex = index;
   }
   
 }

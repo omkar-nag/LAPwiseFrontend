@@ -6,7 +6,7 @@
             <button mat-icon-button (click)="sidenav.toggle();">
                 <mat-icon>menu</mat-icon>
             </button>
-            <input type="text" [(ngModel)]="notes[currentNoteIndex].title"
+            <input type="text" [(ngModel)]="currentNote.title"
                 class="note-title" id="note-title" autofocus
                 contenteditable="true">
 
@@ -17,7 +17,7 @@
     <mat-sidenav-container>
         <mat-sidenav #sidenav mode="side">
             <mat-nav-list *ngFor="let note of notes;let i= index">
-                <a (click)="loadNote(i)"  mat-list-item>{{note.title}}</a>
+                <a (click)="loadNote(note.id)"  mat-list-item>{{note.title}}</a>
             </mat-nav-list>
         </mat-sidenav>
         <mat-sidenav-content>
@@ -26,7 +26,8 @@
                 <div>
                     <textarea type="text" id="note-content" class="grid-item-1"
                         contenteditable="true"
-                        [(ngModel)]="notes[currentNoteIndex].content">
+                        [(ngModel)]="currentNote.content"
+                        placeholder="Take a Quick Note!!">
                     </textarea>
                 </div>
                 <div id="btns" class="grid-item-2">
@@ -35,11 +36,11 @@
                         + Add
                     </button>
                     <button mat-raised-button color="primary"
-                        (click)="saveNote(notes[currentNoteIndex])">
+                        (click)="saveNote()">
                         Save
                     </button>
                     <button mat-raised-button color="primary"
-                        (click)="deleteNote(notes[currentNoteIndex])">
+                        (click)="deleteNote()">
                         Delete
                     </button>
 
