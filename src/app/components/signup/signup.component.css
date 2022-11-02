@@ -31,3 +31,36 @@ button {
 .centre{
     margin-left: 50px;
    }
+
+
+.btn {
+    padding: 1rem;
+    border: none;
+    color: #fff;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: inherit;
+    width: 300px;
+}
+
+.btn-signup {
+    margin-top: 2rem;
+    box-shadow: 0 1rem 2rem #00000025;
+}
+
+.btn-signup:active {
+    box-shadow: none;
+}
+
+.btn-signup:hover {
+    color: #000000;
+}
+
+.heading {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 120%;
+    margin: 2rem 0;
+}
