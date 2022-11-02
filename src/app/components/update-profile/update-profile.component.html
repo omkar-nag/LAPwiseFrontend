@@ -68,29 +68,22 @@ class="inputBox form-control"
                     placeholder="Username" ></td></tr></div>
            
                     <div class="flex-center flex-row">
-                        <tr><td> <label style="margin-left: 30px;">Password</label></td>
+                   
             
-                            <td><input 
+                          <tr>  <td><input 
+                                type="hidden"
                class="inputBox form-control" 
                     id="password"
                     name="Password"
                 
                     value="{{profile.password}}"
                     #password="ngModel"
-                    [type]="hidePassword ? 'password' : 'text'"
+                   
                     [(ngModel)]="service.formData.password"
                   
                     placeholder="Password" 
                     pattern="(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"></td>
-                    
-          <td>  <button type=button
-            style="width: 20px;height: 20px;background-color: ghostwhite;"
-                    mat-icon-button matSuffix
-                    (click)="hidePassword=!hidePassword"
-                    [attr.aria-label]="'hidePassword password'"
-                    [attr.aria-pressed]="hidePassword">
-                    <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </button></td></tr></div>
+        </tr></div>
             
                 <tr><td colspan="2" rowspan="3" style="align-items: center;">   <button  mat-raised-button color="accent"  class="routeBtn">Update</button></td></tr>
           </div>
