@@ -21,11 +21,11 @@
                     id="firstname"
                     name="FirstName"
                    
-                   value="{{profile.firstName}}"
-                   #lastName="ngModel"
+                    minlength="3"
                     [(ngModel)]="service.formData.firstName"
-                   
-                    placeholder="First Name" ></td></tr></div>
+              
+                  pattern="[a-zA-Z]+"
+                    placeholder="First Name" required></td></tr></div>
                
 
                     <div class="flex-center flex-row">
@@ -35,11 +35,9 @@ class="inputBox form-control"
                     id="lastname"
                     name="LastName"
                  
-                    value="{{profile.lastName}}"
-                    #lastName="ngModel"
                     [(ngModel)]="service.formData.lastName"
-               
-                    placeholder="Last Name"></td></tr></div>
+                    pattern="[a-zA-Z]+" minlength="3"
+                    placeholder="Last Name" required></td></tr></div>
             
 
                     <div class="flex-center flex-row">
@@ -49,13 +47,12 @@ class="inputBox form-control"
                     id="email"
                     name="Email"
                    
-                    value="{{profile.email}}"
-                    #email="ngModel"
+                    
                     type="email"
-                    [email]="true"
+                   
                     [(ngModel)]="service.formData.email"
-                  
-                    placeholder="email" ></td></tr></div>
+                    pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+                    placeholder="email" required></td></tr></div>
            
                     <div class="flex-center flex-row">
                         <tr><td>   <label>Username</label></td>
@@ -64,11 +61,10 @@ class="inputBox form-control"
                     id="username"
                     name="UserName"
                   
-                    value="{{profile.userName}}"
-                    #userName="ngModel"
+                    
                     [(ngModel)]="service.formData.userName"
                  
-                    placeholder="Username" ></td></tr></div>
+                    placeholder="Username" disabled="true"></td></tr></div>
            
                     <div class="flex-center flex-row">
                    
@@ -79,8 +75,7 @@ class="inputBox form-control"
                     id="password"
                     name="Password"
                 
-                    value="{{profile.password}}"
-                    #password="ngModel"
+                  
                    
                     [(ngModel)]="service.formData.password"
                   
@@ -88,7 +83,7 @@ class="inputBox form-control"
                     pattern="(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"></td>
         </tr></div>
             
-                <tr><td colspan="2" rowspan="3" style="align-items: center;">   <button  mat-raised-button color="accent"  class="routeBtn">Update</button></td></tr>
+                <tr><td colspan="2" rowspan="3" style="align-items: center;">   <button  mat-raised-button color="accent" [disabled]="!form.dirty" class="routeBtn">Update</button></td></tr>
           </div>
                         </table>
                         </form>
@@ -148,7 +143,7 @@ class="inputBox form-control"
                                 <mat-icon>{{hideNewPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
                             </button></td></tr></div>
                             </tr>
-                            <tr><td colspan="2" rowspan="3" style="align-items: center;">   <button  mat-raised-button color="accent"  class="routeBtn">Update</button></td></tr>
+                            <tr><td colspan="2" rowspan="3" style="align-items: center;">   <button  mat-raised-button color="accent"   class="routeBtn">Update</button></td></tr>
 
                         </div>
                         
