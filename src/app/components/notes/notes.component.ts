@@ -3,6 +3,7 @@ import { UserDataService } from 'src/app/services/user-data.service';
 import { NotesModel } from './notes.model';
 import { NotesService } from './notes.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-notes',
@@ -33,22 +34,36 @@ export class NotesComponent implements OnInit {
         if (this.notes.length === 0) {
           this.newNote();
         }
+        this.loadNote(this.notes[0].id);
       });
   }
 
   deleteNote() {
     
     if(this.currentNote.id>0){
-      this.notesService.deleteNote(this.currentNote);
+      
+      // Mocking wrong behaviour to check exception
+      // this.currentNote.id=777;
+      this.notesService.deleteNote(this.currentNote)
+      .subscribe({
+        next:()=>
+        {
+
+          this._snackBar.open("\"" + this.currentNote.title + "\" deleted successfully!!", "OK");
+
+          this.notes.splice(this.currentNoteIndex,1);
+      
+          var len = this.notes.length;
+      
+          len===0?this.newNote():this.currentNote=this.notes[len-1];this.currentNoteIndex=len-1;
+        },
+        error:(er:HttpErrorResponse) => 
+        {
+          this.customErrorHandler(er);
+        }
+      });
     }
     
-    this._snackBar.open("\"" + this.currentNote.title + "\" deleted successfully!!", "OK");
-
-    this.notes.splice(this.currentNoteIndex,1);
-
-    var len = this.notes.length;
-
-    len===0?this.newNote():this.currentNote=this.notes[len-1];this.currentNoteIndex=len-1;
     
   }
 
@@ -65,7 +80,6 @@ export class NotesComponent implements OnInit {
     this.notes.push(tempNote);
     this.loadNote(tempNote.id);
   
-
   }
 
   saveNote() {
@@ -74,13 +88,36 @@ export class NotesComponent implements OnInit {
       this._snackBar.open("Title or Content cannot be empty!!", "OK");
       return;
     }
-    this.notesService.putNote(this.currentNote)
-      .subscribe((note:NotesModel)=>{
-          this.currentNote = note;
-          this.notes[this.currentNoteIndex] = this.currentNote;
-        }
-      );
-      
+    
+    if(this.currentNote.id<0){
+      // Mocking wrong behaviour to check exception
+      // this.currentNote.id=777;
+      this.notesService.postNote(this.currentNote)
+        .subscribe({
+            next: (note:NotesModel)=>{
+              this.currentNote = note;
+              this.notes[this.currentNoteIndex] = this.currentNote;
+            },
+            error: (er:HttpErrorResponse) => {
+              this.customErrorHandler(er);
+            }
+        });
+    }
+
+    else{
+      // Mocking wrong behaviour to check exception
+      // this.currentNote.id=777;
+      this.notesService.putNote(this.currentNote)
+      .subscribe({
+          next: (note:NotesModel)=>{
+            this.currentNote = note;
+            this.notes[this.currentNoteIndex] = this.currentNote;
+          },
+          error: (er:HttpErrorResponse) => {
+            this.customErrorHandler(er);
+          }
+      });
+    }
   }
 
 
@@ -91,5 +128,13 @@ export class NotesComponent implements OnInit {
     this.currentNoteIndex = this.notes.findIndex(note=>note.id===this.currentNote.id);
 
   }
-  
+ 
+  customErrorHandler(er:HttpErrorResponse){
+    if(er.status==400){
+      this._snackBar.open("😕 Oops! The operation was not performed due to internal error, Try again after sometime", "X");
+    }
+    if(er.status==500 || er.status==404){
+      this._snackBar.open("😕 Oops! The operation was not performed due to server error, Try again after sometime", "X");
+    }
+  }
 }
