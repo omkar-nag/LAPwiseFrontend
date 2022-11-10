@@ -36,7 +36,8 @@ class="inputBox form-control"
                     name="LastName"
                  
                     [(ngModel)]="service.formData.lastName"
-                    pattern="[a-zA-Z]+" minlength="3"
+                    minlength="3"
+                    pattern="[a-zA-Z]+"
                     placeholder="Last Name" required></td></tr></div>
             
 
@@ -49,9 +50,9 @@ class="inputBox form-control"
                    
                     
                     type="email"
-                   
+                    
                     [(ngModel)]="service.formData.email"
-                    pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+                    
                     placeholder="email" required></td></tr></div>
            
                     <div class="flex-center flex-row">

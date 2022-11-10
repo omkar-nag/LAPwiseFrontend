@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { JwtModule } from '@auth0/angular-jwt';
+import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -93,6 +93,8 @@ const materialComponents = [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+  
+  
 
     materialComponents,
     SkeletonLoaderModule,
@@ -107,7 +109,7 @@ const materialComponents = [
       }
     }),
   ],
-  providers: [HttpClientModule],
+  providers: [HttpClientModule, JwtHelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

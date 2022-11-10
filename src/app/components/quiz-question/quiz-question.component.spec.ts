@@ -1,6 +1,11 @@
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { RouterTestingModule } from '@angular/router/testing';
+import { QuizQuestionComponent } from '../assessment-quiz/quiz-question/quiz-question.component';
 
-import { QuizQuestionComponent } from './quiz-question.component';
+
 
 describe('QuizQuestionComponent', () => {
   let component: QuizQuestionComponent;
@@ -8,6 +13,7 @@ describe('QuizQuestionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [HttpClientModule,RouterTestingModule,HttpClientTestingModule, MatSnackBarModule],
       declarations: [ QuizQuestionComponent ]
     })
     .compileComponents();
