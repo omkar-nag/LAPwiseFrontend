@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserDataService } from 'src/app/services/user-data.service';
 import { NotesModel } from './notes.model';
-import { NotesService } from './notes.service';
+import { NotesService } from '../../services/notes.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -97,6 +97,7 @@ export class NotesComponent implements OnInit {
             next: (note:NotesModel)=>{
               this.currentNote = note;
               this.notes[this.currentNoteIndex] = this.currentNote;
+              this._snackBar.open(this.currentNote.title +" Saved Successfully!","OK");
             },
             error: (er:HttpErrorResponse) => {
               this.customErrorHandler(er);
@@ -112,6 +113,7 @@ export class NotesComponent implements OnInit {
           next: (note:NotesModel)=>{
             this.currentNote = note;
             this.notes[this.currentNoteIndex] = this.currentNote;
+            this._snackBar.open(this.currentNote.title +" Saved Successfully!","OK");
           },
           error: (er:HttpErrorResponse) => {
             this.customErrorHandler(er);

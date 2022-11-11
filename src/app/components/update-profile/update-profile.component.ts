@@ -42,7 +42,7 @@ export class UpdateProfileComponent implements OnInit {
     if (form.valid) {
       this.service.putUser().subscribe(
         res => {
-
+          console.log(FormData);
           this.openSnackBar("Updated Successfully", "OK");
           this.router.navigate(["/profile"])
         },
